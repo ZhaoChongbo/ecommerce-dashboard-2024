@@ -600,8 +600,8 @@ nav.scrolled {
   <div class="chart-grid">
     <div class="panel reveal reveal-delay-1">
       <div class="panel-header">
-        <h3>流失预测特征重要性（全特征）</h3>
-        <span class="panel-badge red">Top 8 · 5折CV</span>
+        <h3>流失预测特征重要性（Top10精选）</h3>
+        <span class="panel-badge red">22→10维 · 5折CV</span>
       </div>
       <div class="chart-wrap medium" id="chart-feature-importance"></div>
     </div>
@@ -666,30 +666,30 @@ nav.scrolled {
   <div class="chart-grid" style="margin-top:20px;">
     <div class="panel reveal reveal-delay-3">
       <div class="panel-header">
-        <h3>RF 5折CV 混淆矩阵（H1→H2验证）</h3>
-        <span class="panel-badge green">32,835 样本</span>
+        <h3>RF 混淆矩阵（Top10 特征 · 5折CV）</h3>
+        <span class="panel-badge green">32,835 样本 · 10维</span>
       </div>
       <div class="table-wrap">
         <table class="data-table" style="margin-bottom:16px;">
           <thead><tr><th></th><th class="num" style="color:#ef4444">预测流失</th><th class="num" style="color:var(--green)">预测非流失</th><th class="num">合计</th></tr></thead>
           <tbody>
-            <tr style="background:rgba(239,68,68,0.06)"><td style="color:#ef4444;font-weight:600">真实流失</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">3,360</td><td class="num" style="color:#ef4444">1,856</td><td class="num">5,216</td></tr>
-            <tr style="background:rgba(16,185,129,0.04)"><td style="color:var(--green);font-weight:600">真实非流失</td><td class="num" style="color:#ef4444">6,813</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">20,807</td><td class="num">27,619</td></tr>
-            <tr style="border-top:1px solid var(--border-strong);"><td style="font-weight:700">合计</td><td class="num" style="font-weight:700">10,173</td><td class="num" style="font-weight:700">22,662</td><td class="num" style="font-weight:700">32,835</td></tr>
+            <tr style="background:rgba(239,68,68,0.06)"><td style="color:#ef4444;font-weight:600">真实流失</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">3,464</td><td class="num" style="color:#ef4444">1,751</td><td class="num">5,215</td></tr>
+            <tr style="background:rgba(16,185,129,0.04)"><td style="color:var(--green);font-weight:600">真实非流失</td><td class="num" style="color:#ef4444">6,490</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">21,130</td><td class="num">27,620</td></tr>
+            <tr style="border-top:1px solid var(--border-strong);"><td style="font-weight:700">合计</td><td class="num" style="font-weight:700">9,954</td><td class="num" style="font-weight:700">22,881</td><td class="num" style="font-weight:700">32,835</td></tr>
           </tbody>
         </table>
       </div>
       <div style="display:flex;gap:24px;flex-wrap:wrap;">
-        <div><span style="font-size:11px;color:var(--text-muted)">TP 真正</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">3,360</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">FP 误报</span><br><span style="font-size:18px;font-weight:800;color:var(--red)">6,813</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">FN 漏报</span><br><span style="font-size:18px;font-weight:800;color:var(--accent2)">1,856</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">TN 真阴</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">20,807</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">精确率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">33.0%</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">60.6%</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">TP 真正</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">3,464</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FP 误报</span><br><span style="font-size:18px;font-weight:800;color:var(--red)">6,490</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FN 漏报</span><br><span style="font-size:18px;font-weight:800;color:var(--accent2)">1,751</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">TN 真阴</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">21,130</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">精确率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">34.8%</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">66.4%</span></div>
       </div>
       <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 每次预测损失3,360人(TP) + 误报6,813人(FP) = 10,173人需干预</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--red)"></span> 漏报1,856人(True Churn but Missed) = 实际流失中的35.6%被遗漏</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> Top10 vs 全特征：精确率+1.8pp · 召回率+5.8pp · 误报减少323人</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 被剔除的特征（品类多样性/促销依赖/取消率/人口属性）存在噪声，去掉后反而提升</div>
       </div>
     </div>
 
@@ -700,15 +700,15 @@ nav.scrolled {
       </div>
       <div style="padding: 12px 0;">
         <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">
-          加入全量特征后，<span style="color:var(--green);font-weight:600;">点击次数</span>（39.7%）和<span style="color:var(--green);font-weight:600;">加购次数</span>（33.5%）成为最重要的预测因子，
-          合计占特征重要性 73.2%，<span style="color:var(--accent);font-weight:600;">近30天活跃度</span>退居第三（7.9%）。
+          从22个特征中精选Top10后，<span style="color:var(--green);font-weight:600;">点击次数</span>（39.7%）和<span style="color:var(--green);font-weight:600;">加购次数</span>（33.5%）仍占主导地位。
+          被去掉的品类多样性、促销依赖、取消率和人口属性特征，在5折CV中反而引入了噪声。
         </p>
         <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">
-          模型 <strong style="color:var(--green)">ROC-AUC 76.2%</strong> · <strong style="color:var(--accent)">召回率 60.6%</strong> · <strong style="color:var(--accent2)">精确率 33.0%</strong>，
-          全特征相比去泄露版ROC-AUC提升14.4pp，PR-AUC从23.1%翻倍至43.2%。
+          <strong style="color:var(--green)">ROC-AUC 76.6%</strong> · <strong style="color:var(--accent)">召回率 66.4%</strong> · <strong style="color:var(--accent2)">精确率 34.8%</strong>，
+          相比全特征22维，<strong style="color:var(--green)">全部指标均小幅提升</strong>——说明特征不是越多越好，噪声特征反而拖累性能。
         </p>
         <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">
-          💡 混淆矩阵显示：每一轮预测标记1万+用户需要关注，建议「模型初筛 → 三模型投票复核 → RFM交叉确认 → 人工干预」四级防控体系。
+          💡 结论：精简到Top10后，误报减少323人，召回率提升5.8pp。建议以Top10特征为基线，配合「模型初筛 → 三模型投票 → RFM交叉确认」三级防控。
         </p>
       </div>
     </div>
@@ -937,16 +937,16 @@ nav.scrolled {
     window.addEventListener('resize', function() { chart.resize(); });
   })();
 
-  // ===== 6. MODEL GAUGE (V6 - FULL FEATURES 5-FOLD CV) =====
+  // ===== 6. MODEL GAUGE (Top10 5-FOLD CV) =====
   (function() {
     var chart = initChart('chart-model-gauge');
     var metrics = [
-      { name: 'ROC-AUC', value: 76.2 },
-      { name: '准确率', value: 74.2 },
-      { name: '召回率', value: 60.6 },
-      { name: 'F1 Score', value: 42.7 },
-      { name: 'PR-AUC', value: 43.2 },
-      { name: '精确率', value: 33.0 }
+      { name: 'ROC-AUC', value: 76.6 },
+      { name: '准确率', value: 74.9 },
+      { name: '召回率', value: 66.4 },
+      { name: 'F1 Score', value: 43.0 },
+      { name: 'PR-AUC', value: 43.5 },
+      { name: '精确率', value: 34.8 }
     ];
     chart.setOption({
       animation: true, animationDuration: 800,
