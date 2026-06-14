@@ -255,6 +255,7 @@ nav.scrolled {
 .strategy-card .sc-icon.green { background: var(--green-glow); color: var(--green); }
 .strategy-card .sc-icon.amber { background: var(--accent2-glow); color: var(--accent2); }
 .strategy-card .sc-icon.purple { background: var(--purple-glow); color: var(--purple); }
+.strategy-card .sc-icon.red { background: var(--red-glow); color: var(--red); }
 .strategy-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
 .strategy-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
 .strategy-card .sc-tag {
@@ -665,36 +666,30 @@ nav.scrolled {
   <div class="chart-grid" style="margin-top:20px;">
     <div class="panel reveal reveal-delay-3">
       <div class="panel-header">
-        <h3>方法论升级说明（V4 → V5 → V6）</h3>
-        <span class="panel-badge green">逐步迭代</span>
+        <h3>RF 5折CV 混淆矩阵（H1→H2验证）</h3>
+        <span class="panel-badge green">32,835 样本</span>
       </div>
       <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>问题</th><th>V4（旧）</th><th>V5（修复）</th><th>V6（全特征）</th><th>效果</th></tr></thead>
+        <table class="data-table" style="margin-bottom:16px;">
+          <thead><tr><th></th><th class="num" style="color:#ef4444">预测流失</th><th class="num" style="color:var(--green)">预测非流失</th><th class="num">合计</th></tr></thead>
           <tbody>
-            <tr>
-              <td>特征泄露</td>
-              <td style="color:var(--red)">包含 click/cart（全量累计）</td>
-              <td style="color:var(--accent2)">仅用 H1 窗口内特征</td>
-              <td style="color:var(--green)">加入 click/cart（模拟数据无泄露风险）</td>
-              <td style="color:var(--green)">ROC-AUC +14.4pp</td>
-            </tr>
-            <tr>
-              <td>评估方式</td>
-              <td style="color:var(--red)">训练集自评</td>
-              <td style="color:var(--green)">5折 StratifiedKFold CV</td>
-              <td style="color:var(--green)">5折 StratifiedKFold CV</td>
-              <td>指标真实可信</td>
-            </tr>
-            <tr>
-              <td>时间划分</td>
-              <td style="color:var(--red)">未区分时间段</td>
-              <td style="color:var(--green)">H1训练 → H2验证</td>
-              <td style="color:var(--green)">H1训练 → H2验证</td>
-              <td>模拟真实预测</td>
-            </tr>
+            <tr style="background:rgba(239,68,68,0.06)"><td style="color:#ef4444;font-weight:600">真实流失</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">3,360</td><td class="num" style="color:#ef4444">1,856</td><td class="num">5,216</td></tr>
+            <tr style="background:rgba(16,185,129,0.04)"><td style="color:var(--green);font-weight:600">真实非流失</td><td class="num" style="color:#ef4444">6,813</td><td class="num" style="color:var(--green);font-weight:700;font-size:16px">20,807</td><td class="num">27,619</td></tr>
+            <tr style="border-top:1px solid var(--border-strong);"><td style="font-weight:700">合计</td><td class="num" style="font-weight:700">10,173</td><td class="num" style="font-weight:700">22,662</td><td class="num" style="font-weight:700">32,835</td></tr>
           </tbody>
         </table>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div><span style="font-size:11px;color:var(--text-muted)">TP 真正</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">3,360</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FP 误报</span><br><span style="font-size:18px;font-weight:800;color:var(--red)">6,813</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FN 漏报</span><br><span style="font-size:18px;font-weight:800;color:var(--accent2)">1,856</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">TN 真阴</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">20,807</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">精确率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">33.0%</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">60.6%</span></div>
+      </div>
+      <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 每次预测损失3,360人(TP) + 误报6,813人(FP) = 10,173人需干预</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--red)"></span> 漏报1,856人(True Churn but Missed) = 实际流失中的35.6%被遗漏</div>
       </div>
     </div>
 
@@ -710,10 +705,10 @@ nav.scrolled {
         </p>
         <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">
           模型 <strong style="color:var(--green)">ROC-AUC 76.2%</strong> · <strong style="color:var(--accent)">召回率 60.6%</strong> · <strong style="color:var(--accent2)">精确率 33.0%</strong>，
-          相比 V5 去泄露版全线提升，PR-AUC 更是从 23.1% 翻倍至 43.2%。
+          全特征相比去泄露版ROC-AUC提升14.4pp，PR-AUC从23.1%翻倍至43.2%。
         </p>
         <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">
-          💡 模拟数据场景下无泄露风险，可放心使用全特征模型。建议「模型初筛 → RFM复核 → 人工干预」三级防控体系。
+          💡 混淆矩阵显示：每一轮预测标记1万+用户需要关注，建议「模型初筛 → 三模型投票复核 → RFM交叉确认 → 人工干预」四级防控体系。
         </p>
       </div>
     </div>
@@ -749,28 +744,19 @@ nav.scrolled {
 
     <div class="strategy-card reveal reveal-delay-3">
       <div class="sc-icon amber">S3</div>
-      <h4>品牌捆绑：全棉时代 + 华为 互推</h4>
-      <p>全棉时代用户购买华为的概率比随机高 11.1%（Lift 1.111），且双向置信度均超 22%，说明两品牌用户画像高度重叠，适合做品牌联合营销。</p>
+      <h4>品牌互推 + 地域渗透：同时发力</h4>
+      <p>品牌侧：全棉时代↔华为双向置信度最高（Lift 1.111），适合联合营销。地域侧：山东美妆（残差−2.37）和吉林3C（−2.13）显著低于全国，渗透空间明确。品牌组合券打入低渗透市场，一举两得。</p>
       <span class="sc-tag">🎯 品牌联合券</span>
-      <span class="sc-tag">📱 首页互推位</span>
-      <span class="sc-tag">📧 邮件交叉推荐</span>
-    </div>
-
-    <div class="strategy-card reveal reveal-delay-4">
-      <div class="sc-icon purple">S4</div>
-      <h4>山东美妆 & 吉林3C 渗透攻坚</h4>
-      <p>山东美妆护肤消费显著低于全国均值（标准化残差 −2.37），吉林 3C 电子同理（−2.13）。结合品牌关联规则，可用「全棉时代+美妆」、「完美日记+小米」组合打入。</p>
-      <span class="sc-tag">🎯 地域定向补贴</span>
-      <span class="sc-tag">🚚 区域仓储优化</span>
+      <span class="sc-tag">🗺️ 地域定向补贴</span>
       <span class="sc-tag">🤝 本地KOL合作</span>
     </div>
 
     <div class="strategy-card reveal reveal-delay-4">
-      <div class="sc-icon red">S5</div>
+      <div class="sc-icon red">S4</div>
       <h4>流失预警：三模型投票 · 精准干预</h4>
-      <p>三模型全票通过(3/3)的 7,998 人，真实流失率 42.0%，是精准度最高的干预目标。2/3 票反而不如 1/3 票可靠（12.8% vs 17.6%）——RF 和 XGBoost 同时投票时存在共同偏见。</p>
+      <p>三模型全票通过(3/3)的 7,998 人，真实流失率 42.0%，是精准度最高的干预目标。反直觉发现：2/3 票反而比 1/3 票更不可靠（12.8% vs 17.6%）——RF 和 XGBoost 同时投票时存在共同偏见。</p>
       <span class="sc-tag">🔴 3/3 全票 7,998人 · 立即发券</span>
-      <span class="sc-tag">🟢 1/3 票 4,075人 · 观察队列</span>
+      <span class="sc-tag">🟡 1/3 票 4,075人 · 观察队列</span>
       <span class="sc-tag">⚪ 0/3 票 18,268人 · 正常运营</span>
     </div>
   </div>
