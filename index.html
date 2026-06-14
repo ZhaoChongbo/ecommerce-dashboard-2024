@@ -815,13 +815,15 @@ nav.scrolled {
     chart.setOption({
       animation: true, animationDuration: 1000, animationEasing: 'cubicOut',
       tooltip: Object.assign({ trigger: 'item', formatter: '<b>{b}</b><br/>用户数: {c:,}<br/>占比: {d}%' }, commonTooltip),
-      legend: { bottom: 0, textStyle: { color: muted, fontSize: 10, fontFamily: 'inherit' } },
+      legend: { bottom: 5, textStyle: { color: muted, fontSize: 10, fontFamily: 'inherit' }, itemGap: 12 },
       color: [green, accent, accent2, red],
       series: [{
-        type: 'pie', radius: ['52%', '82%'], center: ['50%', '45%'],
-        emphasis: { scaleSize: 8, label: { fontSize: 16, fontWeight: 'bold' } },
-        itemStyle: { borderRadius: 6, borderColor: bgCard, borderWidth: 3 },
-        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 10, lineHeight: 16 },
+        type: 'pie', radius: ['45%', '72%'], center: ['50%', '42%'],
+        avoidLabelOverlap: true, padAngle: 2,
+        emphasis: { scaleSize: 6, label: { fontSize: 14, fontWeight: 'bold' } },
+        itemStyle: { borderRadius: 5, borderColor: bgCard, borderWidth: 2 },
+        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 9, lineHeight: 14, alignTo: 'edge', edgeDistance: '25%' },
+        labelLine: { show: true, length: 12, length2: 10, lineStyle: { color: 'rgba(255,255,255,0.15)' } },
         data: [
           { value: 19522, name: '重要价值客户' },
           { value: 35740, name: '重要发展客户' },
@@ -841,20 +843,20 @@ nav.scrolled {
       tooltip: Object.assign({ trigger: 'item' }, commonTooltip),
       legend: {
         data: ['高价值活跃型(35.8%)','流失风险型(44.3%)','高端低频型(11.9%)','普通型(8.0%)'],
-        bottom: 0, textStyle: { color: muted, fontSize: 10, fontFamily: 'inherit' }
+        bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, itemGap: 10
       },
       color: [green, red, accent, purple],
       radar: {
-        center: ['50%', '47%'], radius: '62%',
-        axisName: { color: muted, fontSize: 9, fontFamily: 'inherit' },
+        center: ['50%', '45%'], radius: '55%',
+        axisName: { color: muted, fontSize: 8, fontFamily: 'inherit', padding: [3, 3] },
         splitArea: { areaStyle: { color: ['rgba(255,255,255,0.01)','rgba(255,255,255,0.02)'] } },
         splitLine: { lineStyle: { color: rule } },
         axisLine: { lineStyle: { color: rule } },
         indicator: [
-          { name: '活跃度\n(recency↓)', max: 100 },
+          { name: '活跃度↓', max: 100 },
           { name: '订单频次', max: 8 },
-          { name: '消费金额(千)', max: 18000 },
-          { name: '客单价(千)', max: 6000 },
+          { name: '消费金额', max: 18000 },
+          { name: '客单价', max: 6000 },
           { name: '品牌多样性', max: 6 },
           { name: '品类多样性', max: 5 },
           { name: '促销依赖', max: 0.4 },
@@ -862,12 +864,12 @@ nav.scrolled {
         ]
       },
       series: [{
-        type: 'radar', emphasis: { lineStyle: { width: 3 } },
+        type: 'radar', emphasis: { lineStyle: { width: 2 } },
         data: [
-          { value: [45.37, 6.68, 10830, 1616, 5.55, 3.92, 0.30, 0.04], name: '高价值活跃型(35.8%)', areaStyle: { opacity: 0.1 }, symbol: 'circle', symbolSize: 4 },
-          { value: [88.63, 2.48, 1949, 765, 2.26, 1.96, 0.31, 0.00], name: '流失风险型(44.3%)', areaStyle: { opacity: 0.1 }, symbol: 'circle', symbolSize: 4 },
-          { value: [76.69, 3.21, 17167, 5884, 2.77, 2.20, 0.26, 0.02], name: '高端低频型(11.9%)', areaStyle: { opacity: 0.1 }, symbol: 'circle', symbolSize: 4 },
-          { value: [74.89, 3.21, 3752, 1230, 2.89, 2.41, 0.30, 0.41], name: '普通型(8.0%)', areaStyle: { opacity: 0.1 }, symbol: 'circle', symbolSize: 4 }
+          { value: [45.37, 6.68, 10830, 1616, 5.55, 3.92, 0.30, 0.04], name: '高价值活跃型(35.8%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
+          { value: [88.63, 2.48, 1949, 765, 2.26, 1.96, 0.31, 0.00], name: '流失风险型(44.3%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
+          { value: [76.69, 3.21, 17167, 5884, 2.77, 2.20, 0.26, 0.02], name: '高端低频型(11.9%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
+          { value: [74.89, 3.21, 3752, 1230, 2.89, 2.41, 0.30, 0.41], name: '普通型(8.0%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 }
         ]
       }]
     });
@@ -880,20 +882,20 @@ nav.scrolled {
     chart.setOption({
       animation: true, animationDuration: 800,
       tooltip: Object.assign({ trigger: 'axis' }, commonTooltip),
-      legend: { data: ['订单数','GMV(万元)','参与用户数'], bottom: 0, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, icon: 'roundRect' },
-      grid: { left: 55, right: 20, top: 20, bottom: 32 },
-      xAxis: { type: 'category', data: ['优惠券','限时秒杀','满减满赠'], axisLine: commonAxisLine, axisLabel: { color: muted, fontSize: 11, fontFamily: 'inherit' } },
-      yAxis: { type: 'value', splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 9 } },
+      legend: { data: ['订单数','GMV(万)','参与用户数'], bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, icon: 'roundRect', itemGap: 14 },
+      grid: { left: 60, right: 25, top: 22, bottom: 32, containLabel: true },
+      xAxis: { type: 'category', data: ['优惠券','限时秒杀','满减满赠'], axisLine: commonAxisLine, axisLabel: { color: muted, fontSize: 10, fontFamily: 'inherit' } },
+      yAxis: { type: 'value', name: '数量', nameTextStyle: { color: muted, fontSize: 8 }, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
       series: [
-        { name: '订单数', type: 'bar', data: [57442, 38264, 18849], barWidth: 20,
-          itemStyle: { color: accent, borderRadius: [5,5,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(59,130,246,0.4)' } } },
-        { name: 'GMV(万元)', type: 'bar', data: [9193, 5535, 2881], barWidth: 20,
-          itemStyle: { color: accent2, borderRadius: [5,5,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(245,158,11,0.4)' } } },
-        { name: '参与用户数', type: 'bar', data: [41829, 30765, 16873], barWidth: 20,
-          itemStyle: { color: green, borderRadius: [5,5,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(16,185,129,0.4)' } } }
+        { name: '订单数', type: 'bar', data: [57442, 38264, 18849], barWidth: 18, barGap: '30%',
+          itemStyle: { color: accent, borderRadius: [4,4,0,0] },
+          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(59,130,246,0.3)' } } },
+        { name: 'GMV(万)', type: 'bar', data: [9193, 5535, 2881], barWidth: 18,
+          itemStyle: { color: accent2, borderRadius: [4,4,0,0] },
+          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(245,158,11,0.3)' } } },
+        { name: '参与用户数', type: 'bar', data: [41829, 30765, 16873], barWidth: 18,
+          itemStyle: { color: green, borderRadius: [4,4,0,0] },
+          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(16,185,129,0.3)' } } }
       ]
     });
     window.addEventListener('resize', function() { chart.resize(); });
@@ -905,18 +907,20 @@ nav.scrolled {
     chart.setOption({
       animation: true, animationDuration: 1000,
       tooltip: Object.assign({ trigger: 'item', formatter: '<b>{b}</b><br/>{c:,}人 ({d}%)' }, commonTooltip),
-      legend: { bottom: 0, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' } },
+      legend: { bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, itemGap: 12 },
       color: [green, accent, accent2, muted],
       series: [{
-        type: 'pie', radius: ['50%','78%'], center: ['50%','45%'],
-        emphasis: { scaleSize: 6 },
-        itemStyle: { borderRadius: 5, borderColor: bgCard, borderWidth: 3 },
-        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 9, lineHeight: 14, fontFamily: 'inherit' },
+        type: 'pie', radius: ['50%','75%'], center: ['50%','42%'],
+        avoidLabelOverlap: true, padAngle: 2,
+        emphasis: { scaleSize: 5 },
+        itemStyle: { borderRadius: 5, borderColor: bgCard, borderWidth: 2 },
+        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 8, lineHeight: 13, alignTo: 'edge', edgeDistance: '25%' },
+        labelLine: { show: true, length: 10, length2: 8, lineStyle: { color: 'rgba(255,255,255,0.12)' } },
         data: [
-          { value: 13468, name: '高度忠诚(HHI>0.7)' },
-          { value: 18309, name: '中度忠诚(0.4~0.7)' },
-          { value: 46746, name: '轻度忠诚(0.2~0.4)' },
-          { value: 13745, name: '分散型(<0.2)' }
+          { value: 13468, name: '高度忠诚' },
+          { value: 18309, name: '中度忠诚' },
+          { value: 46746, name: '轻度忠诚' },
+          { value: 13745, name: '分散型' }
         ]
       }]
     });
@@ -926,21 +930,22 @@ nav.scrolled {
   // ===== 5. FEATURE IMPORTANCE (V6 - FULL FEATURES) =====
   (function() {
     var chart = initChart('chart-feature-importance');
-    var features = ['点击次数(click)','加购次数(cart)','30天活跃度(recency↓)','月均购买频次','总消费金额','客单价','平均订单金额','品牌多样性'];
+    var features = ['点击次数','加购次数','活跃度(recency↓)','月均频次','总消费金额','客单价','笔均金额','品牌多样性'];
     var imp = [39.7, 33.5, 7.9, 4.4, 2.3, 2.3, 2.0, 1.8];
     chart.setOption({
       animation: true, animationDuration: 800, animationEasing: 'cubicOut',
       tooltip: Object.assign({ trigger: 'axis', formatter: '<b>{b}</b>: {c}%' }, commonTooltip),
-      grid: { left: 120, right: 40, top: 8, bottom: 12 },
-      xAxis: { type: 'value', name: '%', max: 45, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 9 } },
-      yAxis: { type: 'category', data: features.reverse(), inverse: true, axisLine: commonAxisLine, axisLabel: { color: muted, fontSize: 10, fontFamily: 'inherit' } },
+      grid: { left: 95, right: 42, top: 8, bottom: 12, containLabel: true },
+      xAxis: { type: 'value', name: '%', max: 45, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
+      yAxis: { type: 'category', data: features.reverse(), inverse: true, axisLine: commonAxisLine, 
+        axisLabel: { color: muted, fontSize: 9, fontFamily: 'inherit', width: 90, overflow: 'truncate' } },
       series: [{
         type: 'bar', data: imp.reverse().map(function(v, i) {
           var c = i < 2 ? green : (i < 4 ? accent : (i < 6 ? accent2 : muted));
           return { value: v, itemStyle: { color: c, borderRadius: [0,4,4,0] } };
         }), barWidth: 14,
-        emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(59,130,246,0.3)' } },
-        label: { show: true, position: 'right', formatter: '{c}%', color: muted, fontSize: 9 }
+        emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(59,130,246,0.3)' } },
+        label: { show: true, position: 'right', formatter: '{c}%', color: muted, fontSize: 9, distance: 8 }
       }]
     });
     window.addEventListener('resize', function() { chart.resize(); });
@@ -951,17 +956,17 @@ nav.scrolled {
     var chart = initChart('chart-model-gauge');
     var metrics = [
       { name: 'ROC-AUC', value: 76.2 },
-      { name: '准确率 Accuracy', value: 74.2 },
-      { name: '召回率 Recall', value: 60.6 },
+      { name: '准确率', value: 74.2 },
+      { name: '召回率', value: 60.6 },
       { name: 'F1 Score', value: 42.7 },
       { name: 'PR-AUC', value: 43.2 },
-      { name: '精确率 Precision', value: 33.0 }
+      { name: '精确率', value: 33.0 }
     ];
     chart.setOption({
       animation: true, animationDuration: 800,
       tooltip: Object.assign({ formatter: '<b>{b}</b>: {c}%' }, commonTooltip),
-      grid: { left: 100, right: 55, top: 8, bottom: 12 },
-      xAxis: { type: 'value', name: '%', max: 100, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 9 } },
+      grid: { left: 70, right: 48, top: 8, bottom: 12, containLabel: true },
+      xAxis: { type: 'value', name: '%', max: 100, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
       yAxis: { type: 'category', data: metrics.map(function(m) { return m.name; }).reverse(), inverse: true,
         axisLine: commonAxisLine, axisLabel: { color: muted, fontSize: 10, fontFamily: 'inherit' } },
       series: [{
@@ -970,8 +975,8 @@ nav.scrolled {
           var colorVal = m.value >= 70 ? green : (m.value >= 50 ? accent : (m.value >= 35 ? accent2 : red));
           return { value: m.value, itemStyle: { color: colorVal, borderRadius: [0,4,4,0] } };
         }),
-        label: { show: true, position: 'right', formatter: '{c}%', color: ink, fontSize: 11, fontWeight: 600, fontFamily: 'inherit' },
-        emphasis: { itemStyle: { shadowBlur: 8, shadowColor: 'rgba(59,130,246,0.2)' } }
+        label: { show: true, position: 'right', formatter: '{c}%', color: ink, fontSize: 10, fontWeight: 600, fontFamily: 'inherit', distance: 8 },
+        emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(59,130,246,0.2)' } }
       }]
     });
     window.addEventListener('resize', function() { chart.resize(); });
