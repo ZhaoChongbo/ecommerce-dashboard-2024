@@ -504,7 +504,7 @@ nav.scrolled {
         <h3>K-Means 八维聚类画像</h3>
         <span class="panel-badge purple">4 簇 · 8 指标</span>
       </div>
-      <div class="chart-wrap medium" id="chart-cluster-radar"></div>
+      <div class="chart-wrap large" id="chart-cluster-radar"></div>
       <div class="cross-grid">
         <div class="cross-card">
           <div class="cc-num" style="color:var(--red)">44.3%</div>
@@ -789,16 +789,9 @@ nav.scrolled {
     </div>
   </div>
 
+  <!-- 滚动窗口：4块 2x2 -->
   <div class="chart-grid">
     <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>逐月 Precision / Recall / F1</h3>
-        <span class="panel-badge green">6 个滚动窗口</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-rolling-monthly"></div>
-    </div>
-
-    <div class="panel reveal reveal-delay-2">
       <div class="panel-header">
         <h3>滚动窗口 · 混淆矩阵（6个月汇总）</h3>
         <span class="panel-badge green">334,336 样本 · 6窗口</span>
@@ -813,59 +806,18 @@ nav.scrolled {
           </tbody>
         </table>
       </div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;">
-        <div><span style="font-size:11px;color:var(--text-muted)">TP 真正</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">138,919</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">FP 误报</span><br><span style="font-size:18px;font-weight:800;color:var(--red)">38,126</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">FN 漏报</span><br><span style="font-size:18px;font-weight:800;color:var(--accent2)">69,776</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">TN 真阴</span><br><span style="font-size:18px;font-weight:800;color:var(--green)">87,515</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">准确率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">67.7%</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">精确率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">78.5%</span></div>
-        <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">66.6%</span></div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <div><span style="font-size:11px;color:var(--text-muted)">TP 真正</span><br><span style="font-size:17px;font-weight:800;color:var(--green)">138,919</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FP 误报</span><br><span style="font-size:17px;font-weight:800;color:var(--red)">38,126</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">FN 漏报</span><br><span style="font-size:17px;font-weight:800;color:var(--accent2)">69,776</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">TN 真阴</span><br><span style="font-size:17px;font-weight:800;color:var(--green)">87,515</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">准确率</span><br><span style="font-size:17px;font-weight:800;color:var(--accent)">67.7%</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">精确率</span><br><span style="font-size:17px;font-weight:800;color:var(--accent)">78.5%</span></div>
+        <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:17px;font-weight:800;color:var(--accent)">66.6%</span></div>
       </div>
       <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 6个窗口汇总：预测流失 177,045 人，其中 78.5% 确实流失</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 总体流失率 62.4%——月级预测中大部分用户不会每月都来</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>滚动窗口 · 逐月混淆矩阵详情</h3>
-        <span class="panel-badge teal">7月→12月</span>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>月份</th><th class="num">样本</th><th class="num">TP</th><th class="num">FP</th><th class="num">FN</th><th class="num">TN</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1</th></tr></thead>
-          <tbody>
-            <tr><td>7月</td><td class="num">32,835</td><td class="num">11,188</td><td class="num">4,608</td><td class="num">8,315</td><td class="num">8,724</td><td class="num" style="color:var(--green)">70.8%</td><td class="num">57.4%</td><td class="num">63.4%</td></tr>
-            <tr><td>8月</td><td class="num">41,597</td><td class="num">13,445</td><td class="num">6,097</td><td class="num">10,467</td><td class="num">11,588</td><td class="num" style="color:var(--green)">68.8%</td><td class="num">56.2%</td><td class="num">61.9%</td></tr>
-            <tr><td>9月</td><td class="num">51,041</td><td class="num">16,781</td><td class="num">7,770</td><td class="num">12,227</td><td class="num">14,263</td><td class="num" style="color:var(--green)">68.4%</td><td class="num">57.8%</td><td class="num">62.7%</td></tr>
-            <tr><td>10月</td><td class="num">60,317</td><td class="num">19,446</td><td class="num">8,492</td><td class="num">13,725</td><td class="num">18,654</td><td class="num" style="color:var(--green)">69.6%</td><td class="num">58.6%</td><td class="num">63.6%</td></tr>
-            <tr style="background:rgba(245,158,11,0.05)"><td>11月</td><td class="num">69,816</td><td class="num">27,853</td><td class="num">7,842</td><td class="num">13,619</td><td class="num">20,502</td><td class="num" style="color:var(--green)">78.0%</td><td class="num">67.2%</td><td class="num">72.2%</td></tr>
-            <tr style="background:rgba(16,185,129,0.05)"><td style="color:var(--green);font-weight:700">12月</td><td class="num">78,730</td><td class="num">50,206</td><td class="num">3,317</td><td class="num">11,423</td><td class="num">13,784</td><td class="num" style="color:var(--green);font-weight:700">93.8%</td><td class="num" style="color:var(--green);font-weight:700">81.5%</td><td class="num" style="color:var(--green);font-weight:700">87.2%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 12月 Precision 93.8%：年末消费高峰行为规律最清晰</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 7-10月 F1 稳定在 62%-64%：日常月预测效果一致性高</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 阈值调优 -->
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>阈值调优 · Precision/Recall/F1 曲线</h3>
-        <span class="panel-badge amber">0.10 → 0.90 · 17 档</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-threshold-curves"></div>
-      <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 最优 F1 阈值 = 0.55（Precision 39.5% · Recall 56.8% · F1 46.6%）</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 0.45→高召回(76.8%)适合不漏人 · 0.70→高精准(55.1%)适合不浪费</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 预测流失 177,045 人，78.5% 确实流失</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 总体流失率 62.4% · 月级预测</div>
       </div>
     </div>
 
@@ -894,6 +846,44 @@ nav.scrolled {
       </div>
       <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
         <div class="insight-badge"><span class="dot" style="background:var(--purple)"></span> ROC-AUC 75.4% · 334,336 样本 · 6 个滚动窗口</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid" style="margin-top:20px;">
+    <div class="panel reveal reveal-delay-3">
+      <div class="panel-header">
+        <h3>滚动窗口 · 逐月混淆矩阵详情</h3>
+        <span class="panel-badge teal">7月→12月</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>月份</th><th class="num">样本</th><th class="num">TP</th><th class="num">FP</th><th class="num">FN</th><th class="num">TN</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1</th></tr></thead>
+          <tbody>
+            <tr><td>7月</td><td class="num">32,835</td><td class="num">11,188</td><td class="num">4,608</td><td class="num">8,315</td><td class="num">8,724</td><td class="num" style="color:var(--green)">70.8%</td><td class="num">57.4%</td><td class="num">63.4%</td></tr>
+            <tr><td>8月</td><td class="num">41,597</td><td class="num">13,445</td><td class="num">6,097</td><td class="num">10,467</td><td class="num">11,588</td><td class="num" style="color:var(--green)">68.8%</td><td class="num">56.2%</td><td class="num">61.9%</td></tr>
+            <tr><td>9月</td><td class="num">51,041</td><td class="num">16,781</td><td class="num">7,770</td><td class="num">12,227</td><td class="num">14,263</td><td class="num" style="color:var(--green)">68.4%</td><td class="num">57.8%</td><td class="num">62.7%</td></tr>
+            <tr><td>10月</td><td class="num">60,317</td><td class="num">19,446</td><td class="num">8,492</td><td class="num">13,725</td><td class="num">18,654</td><td class="num" style="color:var(--green)">69.6%</td><td class="num">58.6%</td><td class="num">63.6%</td></tr>
+            <tr style="background:rgba(245,158,11,0.05)"><td>11月</td><td class="num">69,816</td><td class="num">27,853</td><td class="num">7,842</td><td class="num">13,619</td><td class="num">20,502</td><td class="num" style="color:var(--green)">78.0%</td><td class="num">67.2%</td><td class="num">72.2%</td></tr>
+            <tr style="background:rgba(16,185,129,0.05)"><td style="color:var(--green);font-weight:700">12月</td><td class="num">78,730</td><td class="num">50,206</td><td class="num">3,317</td><td class="num">11,423</td><td class="num">13,784</td><td class="num" style="color:var(--green);font-weight:700">93.8%</td><td class="num" style="color:var(--green);font-weight:700">81.5%</td><td class="num" style="color:var(--green);font-weight:700">87.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 12月 Precision 93.8%：年末消费高峰行为规律最清晰</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 7-10月 F1 稳定在 62%-64%：日常月预测效果一致性高</div>
+      </div>
+    </div>
+
+    <div class="panel reveal reveal-delay-4">
+      <div class="panel-header">
+        <h3>阈值调优 · Precision/Recall/F1 曲线</h3>
+        <span class="panel-badge amber">0.10 → 0.90 · 17 档</span>
+      </div>
+      <div class="chart-wrap medium" id="chart-threshold-curves"></div>
+      <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 最优 F1 阈值 = 0.55（Precision 39.5% · Recall 56.8% · F1 46.6%）</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 0.45→高召回(76.8%)适合不漏人 · 0.70→高精准(55.1%)适合不浪费</div>
       </div>
     </div>
   </div>
@@ -1092,23 +1082,29 @@ nav.scrolled {
     var c = echarts.init(document.getElementById('chart-cluster-radar'), darkTheme);
     c.setOption({
       radar: {
-        center: ['50%','55%'], radius: '65%',
+        center: ['50%','55%'], radius: '68%',
+        splitNumber: 3,
+        splitArea: { areaStyle: { color: ['rgba(255,255,255,0.01)','rgba(255,255,255,0.02)','rgba(255,255,255,0.02)'] } },
+        splitLine: { lineStyle: { color: 'rgba(255,255,255,0.06)' } },
+        axisLine: { lineStyle: { color: 'rgba(255,255,255,0.08)' } },
         indicator: [
           { name: '消费金额', max: 1.5 }, { name: '订单数', max: 1.5 },
           { name: '客单价', max: 1.5 }, { name: '品牌数', max: 1.5 },
           { name: '品类数', max: 1.5 }, { name: '促销占比', max: 1.5 },
           { name: '取消率', max: 1.5 }, { name: '浏览活跃', max: 1.5 }
         ],
-        axisName: { color: '#9ca3af', fontSize: 10, fontFamily: fontCn }
+        axisName: { color: '#9ca3af', fontSize: 12, fontFamily: fontCn, padding: [3,5] }
       },
-      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 12, fontFamily: fontCn } },
       series: [{
         type: 'radar',
+        symbol: 'none',
+        lineStyle: { width: 2 },
         data: [
-          { value: [1.0,0.85,0.52,0.78,0.72,0.35,0.10,0.90], name: '高价值活跃型', lineStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.1)' } },
-          { value: [0.25,0.18,0.40,0.15,0.12,0.55,0.42,0.10], name: '流失风险型', lineStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.1)' } },
-          { value: [0.90,0.30,1.00,0.28,0.25,0.20,0.05,0.35], name: '高端低频型', lineStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.1)' } },
-          { value: [0.45,0.40,0.50,0.35,0.30,0.42,0.15,0.40], name: '普通型', lineStyle: { color: '#14b8a6' }, areaStyle: { color: 'rgba(20,184,166,0.1)' } }
+          { value: [1.0,0.85,0.52,0.78,0.72,0.35,0.10,0.90], name: '高价值活跃型', lineStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.08)' } },
+          { value: [0.25,0.18,0.40,0.15,0.12,0.55,0.42,0.10], name: '流失风险型', lineStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.08)' } },
+          { value: [0.90,0.30,1.00,0.28,0.25,0.20,0.05,0.35], name: '高端低频型', lineStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.08)' } },
+          { value: [0.45,0.40,0.50,0.35,0.30,0.42,0.15,0.40], name: '普通型', lineStyle: { color: '#14b8a6' }, areaStyle: { color: 'rgba(20,184,166,0.08)' } }
         ]
       }]
     });
@@ -1150,24 +1146,6 @@ nav.scrolled {
           { value: 16268, name: '无品牌偏好', itemStyle: { color: '#f59e0b' } }
         ]
       }]
-    });
-    window.addEventListener('resize', function(){ c.resize(); });
-  })();
-
-  // ======== Rolling Monthly ========
-  (function(){
-    var c = echarts.init(document.getElementById('chart-rolling-monthly'), darkTheme);
-    c.setOption({
-      tooltip: { trigger: 'axis' },
-      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
-      grid: { left: '3%', right: '4%', bottom: '15%', top: '8%', containLabel: true },
-      xAxis: { type: 'category', data: ['7月','8月','9月','10月','11月','12月'], axisLabel: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
-      yAxis: { type: 'value', min: 50, max: 100, axisLabel: { color: '#5a6478', fontSize: 10, formatter: '{value}%' } },
-      series: [
-        { name: 'Precision', type: 'line', data: [70.8,68.8,68.4,69.6,78.0,93.8], itemStyle: { color: '#10b981' }, lineStyle: { color: '#10b981', width: 2.5 }, symbol: 'circle', symbolSize: 7, smooth: true },
-        { name: 'Recall', type: 'line', data: [57.4,56.2,57.8,58.6,67.2,81.5], itemStyle: { color: '#3b82f6' }, lineStyle: { color: '#3b82f6', width: 2.5 }, symbol: 'circle', symbolSize: 7, smooth: true },
-        { name: 'F1', type: 'line', data: [63.4,61.9,62.7,63.6,72.2,87.2], itemStyle: { color: '#f59e0b' }, lineStyle: { color: '#f59e0b', width: 3, type: 'dashed' }, symbol: 'diamond', symbolSize: 9, smooth: true }
-      ]
     });
     window.addEventListener('resize', function(){ c.resize(); });
   })();
