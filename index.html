@@ -331,8 +331,8 @@ nav.scrolled {
     <li><a href="#customers">客户</a></li>
     <li><a href="#growth">增长</a></li>
     <li><a href="#risk">风控</a></li>
-    <li><a href="#strategy">策略</a></li>
     <li><a href="#drilldown">下钻</a></li>
+    <li><a href="#strategy">策略</a></li>
   </ul>
   <div class="nav-status glow-pulse">● V7</div>
 </nav>
@@ -711,59 +711,12 @@ nav.scrolled {
 
   </section>
 
-<!-- ==================== SECTION 4: 策略落地 ==================== -->
-<section class="section" id="strategy">
-  <div class="section-header reveal">
-    <span class="section-tag green">04 · Strategy Playbook</span>
-    <h2>策略落地：从洞察到行动</h2>
-    <p>基于四层递进分析，提炼可执行的增长与防控策略</p>
-  </div>
-
-  <div class="strategy-grid">
-    <div class="strategy-card reveal reveal-delay-1">
-      <div class="sc-icon green">S1</div>
-      <h4>激活「重要保持客户」</h4>
-      <p>22,315人（24.2%）处于沉睡边缘，其中 74.4% 被 K-Means 标记为流失风险型。人均消费 ¥2,960 但频次仅 2.6 次，说明有付费能力但缺乏复购动力。</p>
-      <span class="sc-tag">🎯 精准推送</span>
-      <span class="sc-tag">📦 品类组合券</span>
-      <span class="sc-tag">⏰ 90天沉默唤醒</span>
-    </div>
-
-    <div class="strategy-card reveal reveal-delay-2">
-      <div class="sc-icon blue">S2</div>
-      <h4>转化「重要发展客户」为价值客户</h4>
-      <p>35,740人（38.7%）是最大群体，人均消费 ¥7,497、频次 4.4 次，有增长空间。交叉分析显示 42.6% 属于高价值活跃型，只需稍加引导即可升级。</p>
-      <span class="sc-tag">🎯 阶梯满减</span>
-      <span class="sc-tag">🔄 跨品类推荐</span>
-      <span class="sc-tag">⭐ 会员升级通道</span>
-    </div>
-
-    <div class="strategy-card reveal reveal-delay-3">
-      <div class="sc-icon amber">S3</div>
-      <h4>品牌互推 + 地域渗透：同时发力</h4>
-      <p>品牌侧：全棉时代↔华为双向置信度最高（Lift 1.111），适合联合营销。地域侧：山东美妆（残差−2.37）和吉林3C（−2.13）显著低于全国，渗透空间明确。品牌组合券打入低渗透市场，一举两得。</p>
-      <span class="sc-tag">🎯 品牌联合券</span>
-      <span class="sc-tag">🗺️ 地域定向补贴</span>
-      <span class="sc-tag">🤝 本地KOL合作</span>
-    </div>
-
-    <div class="strategy-card reveal reveal-delay-4">
-      <div class="sc-icon red">S4</div>
-      <h4>流失预警：滚动窗口逐月预测 · 精准干预</h4>
-      <p>滚动窗口方案 Precision 78.5%、F1 72.0%，每月基于过去6个月行为重新训练，精准识别当月高危用户。12月表现最优（Precision 93.8%），年末消费高峰可重点布防。阈值建议 0.55（F1最优），可根据业务侧重调整。</p>
-      <span class="sc-tag">🔴 逐月滚动预测 · 月度精准干预</span>
-      <span class="sc-tag">🟡 12月 F1 87.2% · 年末重点布防</span>
-      <span class="sc-tag">⚪ 阈值 0.55 · Precision 39.5%</span>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SECTION 5: 下钻分析 ==================== -->
+<!-- ==================== SECTION 4: 下钻分析 ==================== -->
 <section class="section" id="drilldown">
   <div class="section-header reveal">
-    <span class="section-tag amber">05 · Deep Dive</span>
+    <span class="section-tag amber">04 · Deep Dive</span>
     <h2>地域×品类 下钻分析</h2>
-    <p>在前面的关联分析中，卡方检验发现香港食品生鲜（标准化残差−2.30）和吉林3C电子（−2.13）显著低于全国水平。这两个市场卖不动的原因到底是什么？我们分别拆开看看</p>
+    <p>前面的关联分析中，卡方检验发现香港食品生鲜（标准化残差−2.30）和吉林3C电子（−2.13）显著低于全国水平。这两个市场卖不动，根因是什么？拆开看看</p>
   </div>
 
   <div class="chart-grid">
@@ -887,23 +840,70 @@ nav.scrolled {
   <div class="chart-grid" style="margin-top:20px;">
     <div class="panel reveal reveal-delay-3" style="grid-column: 1 / -1;">
       <div class="panel-header">
-        <h3>下钻结论 & 行动方向</h3>
-        <span class="panel-badge purple">增长机会</span>
+        <h3>下钻小结：两个市场，两种解法</h3>
+        <span class="panel-badge purple">诊断结论</span>
       </div>
       <div style="display:flex;gap:24px;flex-wrap:wrap;padding:12px 0;">
         <div style="flex:1;min-width:280px;padding:16px;background:rgba(16,185,129,0.04);border-radius:8px;border:1px solid rgba(16,185,129,0.15);">
           <h4 style="color:var(--green);font-size:15px;margin-bottom:8px;">香港食品生鲜：需求在，但触达链路断了</h4>
           <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            55.7%的用户买过食品生鲜，但全年仅2,361单、¥29.8万营收。客单价（¥126）和全国持平，<strong style="color:var(--green)">不是价格问题，是"想不起来"的问题</strong>。香港用户的注意力被3C电子完全占满（¥1,703万），食品生鲜在信息流里被淹没了。建议：① 首页针对香港用户增加食品生鲜专属入口 ② 三只松鼠/农夫山泉/蒙牛专场限时促销 ③ 3C订单完成后推送食品生鲜（"买完手机，顺便囤点零食"）
+            55.7%的用户买过食品生鲜，但全年仅2,361单、¥29.8万营收。客单价（¥126）和全国持平，<strong style="color:var(--green)">不是价格问题，是"想不起来"的问题</strong>。香港用户的注意力被3C电子完全占满（¥1,703万），食品生鲜在信息流里被淹没了。
           </p>
         </div>
         <div style="flex:1;min-width:280px;padding:16px;background:rgba(59,130,246,0.04);border-radius:8px;border:1px solid rgba(59,130,246,0.15);">
           <h4 style="color:var(--accent);font-size:15px;margin-bottom:8px;">吉林3C电子：用户少，不是品类弱</h4>
           <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            3C是吉林第一大品类（¥1,587万），占全国仅2.8%。渗透率56.5%、客单价只差¥96（1.4%）、取消率正常——<strong style="color:var(--accent)">一切指标都健康，唯一的问题是吉林总用户太少了</strong>。小米一家吃掉40%份额，Apple和华为各占30%左右。建议：① 吉林定向拉新（注册送3C专属优惠券）② 小米/Apple/华为阶梯满减活动 ③ 手机+配件套餐打包推荐
+            3C是吉林第一大品类（¥1,587万），占全国仅2.8%。渗透率56.5%、客单价只差¥96（1.4%）、取消率正常——<strong style="color:var(--accent)">一切指标都健康，唯一的问题是吉林总用户太少了</strong>。小米一家吃掉40%份额，Apple和华为各占30%左右。
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5: 策略落地 ==================== -->
+<section class="section" id="strategy">
+  <div class="section-header reveal">
+    <span class="section-tag green">05 · Strategy Playbook</span>
+    <h2>策略落地：从洞察到行动</h2>
+    <p>综合前面五层分析（客户画像 → 增长诊断 → 流失预测 → 下钻分析），提炼可执行的增长与防控策略。下钻发现的香港食品生鲜和吉林3C机会已融入 S3 策略</p>
+  </div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card reveal reveal-delay-1">
+      <div class="sc-icon green">S1</div>
+      <h4>激活「重要保持客户」</h4>
+      <p>22,315人（24.2%）处于沉睡边缘，其中 74.4% 被 K-Means 标记为流失风险型。人均消费 ¥2,960 但频次仅 2.6 次，说明有付费能力但缺乏复购动力。</p>
+      <span class="sc-tag">🎯 精准推送</span>
+      <span class="sc-tag">📦 品类组合券</span>
+      <span class="sc-tag">⏰ 90天沉默唤醒</span>
+    </div>
+
+    <div class="strategy-card reveal reveal-delay-2">
+      <div class="sc-icon blue">S2</div>
+      <h4>转化「重要发展客户」为价值客户</h4>
+      <p>35,740人（38.7%）是最大群体，人均消费 ¥7,497、频次 4.4 次，有增长空间。交叉分析显示 42.6% 属于高价值活跃型，只需稍加引导即可升级。</p>
+      <span class="sc-tag">🎯 阶梯满减</span>
+      <span class="sc-tag">🔄 跨品类推荐</span>
+      <span class="sc-tag">⭐ 会员升级通道</span>
+    </div>
+
+    <div class="strategy-card reveal reveal-delay-3">
+      <div class="sc-icon amber">S3</div>
+      <h4>品牌互推 + 地域渗透：同时发力</h4>
+      <p>品牌侧：全棉时代↔华为双向置信度最高（Lift 1.111），适合联合营销。地域侧：下钻分析发现，香港食品生鲜的根因是"触达链路断裂"（不是没需求），吉林3C的根因是"用户盘子小"（不是品类弱）。品牌联合券打入低渗透市场，同时解决两个维度的问题。</p>
+      <span class="sc-tag">🎯 品牌联合券</span>
+      <span class="sc-tag">🗺️ 香港食品入口 · 吉林3C拉新</span>
+      <span class="sc-tag">🤝 本地KOL合作</span>
+    </div>
+
+    <div class="strategy-card reveal reveal-delay-4">
+      <div class="sc-icon red">S4</div>
+      <h4>流失预警：滚动窗口逐月预测 · 精准干预</h4>
+      <p>滚动窗口方案 Precision 78.5%、F1 72.0%，每月基于过去6个月行为重新训练，精准识别当月高危用户。12月表现最优（Precision 93.8%），年末消费高峰可重点布防。三模型投票（3/3全票 7,998人，流失率42.0%）作为辅助验证，阈值建议 0.55（F1最优）。</p>
+      <span class="sc-tag">🔴 逐月滚动预测 · 月度精准干预</span>
+      <span class="sc-tag">🟡 12月 F1 87.2% · 年末重点布防</span>
+      <span class="sc-tag">⚪ 三模型投票 · 阈值 0.55</span>
     </div>
   </div>
 </section>
