@@ -330,9 +330,9 @@ nav.scrolled {
     <li><a href="#overview" class="active">全景</a></li>
     <li><a href="#customers">客户</a></li>
     <li><a href="#growth">增长</a></li>
-    <li><a href="#drilldown">下钻</a></li>
     <li><a href="#risk">风控</a></li>
     <li><a href="#strategy">策略</a></li>
+    <li><a href="#drilldown">下钻</a></li>
   </ul>
   <div class="nav-status glow-pulse">● V7</div>
 </nav>
@@ -590,146 +590,6 @@ nav.scrolled {
   </div>
 </section>
 
-<!-- ==================== SECTION 2B: 下钻分析 ==================== -->
-<section class="section" id="drilldown">
-  <div class="section-header reveal">
-    <span class="section-tag amber">02B · Deep Dive</span>
-    <h2>地域×品类下钻：香港食品生鲜 + 吉林3C</h2>
-    <p>基于卡方检验发现的显著低渗透市场，深挖香港食品生鲜（残差−2.30）和吉林3C电子（残差−2.13）的销售细节</p>
-  </div>
-
-  <div class="chart-grid">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>香港 食品生鲜 · 月度营收趋势</h3>
-        <span class="panel-badge green">全国占比 2.6-3.9%</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-drilldown-hk"></div>
-    </div>
-
-    <div class="panel reveal reveal-delay-2">
-      <div class="panel-header">
-        <h3>吉林 3C电子 · 月度营收趋势</h3>
-        <span class="panel-badge blue">全国占比 2.4-6.4%</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-drilldown-jl"></div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-3">
-      <div class="panel-header">
-        <h3>香港食品生鲜 · 诊断与对策</h3>
-        <span class="panel-badge red">渗透率 55.7% · 客单价 ¥126</span>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>指标</th><th class="num">香港食品生鲜</th><th class="num">全国平均</th><th>差异</th></tr></thead>
-          <tbody>
-            <tr><td>年订单量</td><td class="num">2,361</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
-            <tr><td>年营收</td><td class="num">¥298,287</td><td class="num">—</td><td>香港用户品类中排第五</td></tr>
-            <tr><td>客单价</td><td class="num">¥126</td><td class="num">¥127</td><td>与全国持平</td></tr>
-            <tr><td>取消率</td><td class="num">5.3%</td><td class="num">5.0%</td><td>略高（+0.3pp）</td></tr>
-            <tr><td>渗透率</td><td class="num">55.7%</td><td class="num">—</td><td>过半用户买过，但量少</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 香港用户最爱买 3C电子（¥1,703万），食品生鲜仅排最后（¥29.8万）</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 客单价与全国持平，问题不在价格——是品类"没被想起来"</div>
-      </div>
-    </div>
-
-    <div class="panel reveal reveal-delay-4">
-      <div class="panel-header">
-        <h3>吉林3C电子 · 诊断与对策</h3>
-        <span class="panel-badge red">渗透率 56.5% · 客单价 ¥6,813</span>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>指标</th><th class="num">吉林3C电子</th><th class="num">全国平均</th><th>差异</th></tr></thead>
-          <tbody>
-            <tr><td>年订单量</td><td class="num">2,330</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
-            <tr><td>年营收</td><td class="num">¥1,587.5万</td><td class="num">—</td><td>吉林用户品类中排第一</td></tr>
-            <tr><td>客单价</td><td class="num">¥6,813</td><td class="num">¥6,909</td><td>略低于全国（−¥96）</td></tr>
-            <tr><td>取消率</td><td class="num">5.4%</td><td class="num">5.0%</td><td>略高（+0.4pp）</td></tr>
-            <tr><td>渗透率</td><td class="num">56.5%</td><td class="num">—</td><td>过半用户买过3C</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 3C是吉林用户第一大品类，但全国占比仅2.8%——说明用户基数小而非需求弱</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 客单价差¥96（1.4%），不是价格问题——是获客问题</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>香港食品生鲜 · Top 品牌</h3>
-        <span class="panel-badge green">三只松鼠/农夫山泉/蒙牛 占主导</span>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
-          <tbody>
-            <tr><td>三只松鼠</td><td class="num">¥114,927</td><td class="num">831</td></tr>
-            <tr><td>农夫山泉</td><td class="num">¥96,684</td><td class="num">775</td></tr>
-            <tr><td>蒙牛</td><td class="num">¥86,677</td><td class="num">755</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 前三品牌占香港食品生鲜营收95%以上，品牌集中度极高</div>
-      </div>
-    </div>
-
-    <div class="panel reveal reveal-delay-2">
-      <div class="panel-header">
-        <h3>吉林3C电子 · Top 品牌</h3>
-        <span class="panel-badge blue">小米/Apple/华为 三足鼎立</span>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
-          <tbody>
-            <tr><td>小米</td><td class="num">¥637万</td><td class="num">933</td></tr>
-            <tr><td>Apple</td><td class="num">¥497万</td><td class="num">734</td></tr>
-            <tr><td>华为</td><td class="num">¥453万</td><td class="num">663</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 小米在吉林3C市场占比40%，远超Apple(31%)和华为(29%)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-3" style="grid-column: 1 / -1;">
-      <div class="panel-header">
-        <h3>下钻结论与行动建议</h3>
-        <span class="panel-badge purple">增长策略</span>
-      </div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;padding:12px 0;">
-        <div style="flex:1;min-width:280px;padding:16px;background:rgba(16,185,129,0.04);border-radius:8px;border:1px solid rgba(16,185,129,0.15);">
-          <h4 style="color:var(--green);font-size:15px;margin-bottom:8px;">香港食品生鲜：需求在，触达弱</h4>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            55.7%的香港用户买过食品生鲜，但全年仅2,361单、¥29.8万营收——<strong style="color:var(--green)">有需求但量极小</strong>。客单价与全国持平(¥126)，说明不是价格问题。建议：① 香港首页增加食品生鲜入口 ② 三只松鼠/农夫山泉/蒙牛专场促销 ③ 与3C电子组合推荐（香港用户最爱3C）
-          </p>
-        </div>
-        <div style="flex:1;min-width:280px;padding:16px;background:rgba(59,130,246,0.04);border-radius:8px;border:1px solid rgba(59,130,246,0.15);">
-          <h4 style="color:var(--accent);font-size:15px;margin-bottom:8px;">吉林3C电子：用户基数小，不是需求弱</h4>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            3C是吉林用户第一大品类(¥1,587万)，但全国占比仅2.8%——<strong style="color:var(--accent)">用户基数小，不是品类不行</strong>。客单价差仅¥96(1.4%)，取消率正常。建议：① 吉林定向拉新广告（注册送3C优惠券）② 小米/Apple/华为阶梯满减 ③ 吉林用户3C套餐搭配（手机+配件）
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== SECTION 3: 预警风控 ==================== -->
 <section class="section" id="risk">
   <div class="section-header reveal">
@@ -894,6 +754,156 @@ nav.scrolled {
       <span class="sc-tag">🔴 逐月滚动预测 · 月度精准干预</span>
       <span class="sc-tag">🟡 12月 F1 87.2% · 年末重点布防</span>
       <span class="sc-tag">⚪ 阈值 0.55 · Precision 39.5%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5: 下钻分析 ==================== -->
+<section class="section" id="drilldown">
+  <div class="section-header reveal">
+    <span class="section-tag amber">05 · Deep Dive</span>
+    <h2>地域×品类 下钻分析</h2>
+    <p>在前面的关联分析中，卡方检验发现香港食品生鲜（标准化残差−2.30）和吉林3C电子（−2.13）显著低于全国水平。这两个市场卖不动的原因到底是什么？我们分别拆开看看</p>
+  </div>
+
+  <div class="chart-grid">
+    <div class="panel reveal reveal-delay-1">
+      <div class="panel-header">
+        <h3>香港 食品生鲜 — 全年营收走势</h3>
+        <span class="panel-badge green">全国占比仅 2.6%-3.9%</span>
+      </div>
+      <div class="chart-wrap medium" id="chart-drilldown-hk"></div>
+      <div style="padding:4px 12px 10px;">
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">香港食品生鲜的年营收始终在<strong style="color:var(--green)">¥2-2.9万/月</strong>的区间波动，全国占比从未超过4%。2月最低（¥1.9万），3月最高（¥2.9万），没有明显的季节规律——全年几乎一条水平线。</p>
+      </div>
+    </div>
+
+    <div class="panel reveal reveal-delay-2">
+      <div class="panel-header">
+        <h3>吉林 3C电子 — 全年营收走势</h3>
+        <span class="panel-badge blue">全国占比 2.4%-6.4%</span>
+      </div>
+      <div class="chart-wrap medium" id="chart-drilldown-jl"></div>
+      <div style="padding:4px 12px 10px;">
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">吉林3C的营收在<strong style="color:var(--accent)">100-140万/月</strong>之间稳定运行，但12月骤降到¥40万（全国占比反而飙到6.4%——说明全国12月3C整体腰斩，不是吉林独有现象）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid" style="margin-top:20px;">
+    <div class="panel reveal reveal-delay-3">
+      <div class="panel-header">
+        <h3>香港食品生鲜 — 核心指标拆解</h3>
+        <span class="panel-badge red">渗透率 55.7% · 客单价 ¥126</span>
+      </div>
+      <div style="padding: 4px 0 8px;">
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">超过一半的香港用户在2024年买过食品生鲜，说明<strong style="color:var(--green)">品类是有需求的</strong>。但全年才2,361单——平均每人买不到2次。跟全国客单价（¥127）几乎没差，价格不是问题。问题出在<strong style="color:var(--accent2)">触达频率</strong>上：用户想不起来在这买食品。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>指标</th><th class="num">香港食品生鲜</th><th class="num">全国平均</th><th>差异</th></tr></thead>
+          <tbody>
+            <tr><td>年订单量</td><td class="num">2,361</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
+            <tr><td>年营收</td><td class="num">¥298,287</td><td class="num">—</td><td>香港用户品类中排最末</td></tr>
+            <tr><td>客单价</td><td class="num">¥126</td><td class="num">¥127</td><td>与全国持平</td></tr>
+            <tr><td>取消率</td><td class="num">5.3%</td><td class="num">5.0%</td><td>略高（+0.3pp）</td></tr>
+            <tr><td>购买渗透率</td><td class="num">55.7%</td><td class="num">—</td><td>尝试过，但复购极少</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 香港用户最爱的其实是3C电子（年营收¥1,703万），食品生鲜排在所有品类最后一名</div>
+      </div>
+    </div>
+
+    <div class="panel reveal reveal-delay-4">
+      <div class="panel-header">
+        <h3>吉林3C电子 — 核心指标拆解</h3>
+        <span class="panel-badge red">渗透率 56.5% · 客单价 ¥6,813</span>
+      </div>
+      <div style="padding: 4px 0 8px;">
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">3C电子是<strong style="color:var(--accent)">吉林用户的第一大消费品类</strong>，年营收¥1,587.5万，远超第二名。但放到全国一看只占2.8%——吉林本身用户就少，<strong style="color:var(--accent2)">人均购买力并不差</strong>。客单价只比全国低¥96（1.4%），取消率也正常。根因是<strong style="color:var(--accent)">用户盘子太小</strong>，不是品类吸引力不够。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>指标</th><th class="num">吉林3C电子</th><th class="num">全国平均</th><th>差异</th></tr></thead>
+          <tbody>
+            <tr><td>年订单量</td><td class="num">2,330</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
+            <tr><td>年营收</td><td class="num">¥1,587.5万</td><td class="num">—</td><td>吉林用户品类中排第一</td></tr>
+            <tr><td>客单价</td><td class="num">¥6,813</td><td class="num">¥6,909</td><td>略低（−¥96 / 1.4%）</td></tr>
+            <tr><td>取消率</td><td class="num">5.4%</td><td class="num">5.0%</td><td>略高（+0.4pp）</td></tr>
+            <tr><td>购买渗透率</td><td class="num">56.5%</td><td class="num">—</td><td>买过3C的用户占比很高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 客单价差仅¥96，说明吉林用户愿意掏的钱和全国一样多</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid" style="margin-top:20px;">
+    <div class="panel reveal reveal-delay-1">
+      <div class="panel-header">
+        <h3>香港食品生鲜 — 品牌集中度</h3>
+        <span class="panel-badge green">三只松鼠/农夫山泉/蒙牛 近乎垄断</span>
+      </div>
+      <div style="padding:4px 0 8px;">
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">前三品牌吃掉了香港食品生鲜<strong style="color:var(--green)">95%以上</strong>的营收。这个集中度说明香港用户对食品生鲜的品牌认知极度有限——三只松鼠靠零食出圈、农夫山泉靠饮料、蒙牛靠乳制品，其他品牌几乎被无视。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
+          <tbody>
+            <tr><td>三只松鼠</td><td class="num">¥114,927</td><td class="num">831</td></tr>
+            <tr><td>农夫山泉</td><td class="num">¥96,684</td><td class="num">775</td></tr>
+            <tr><td>蒙牛</td><td class="num">¥86,677</td><td class="num">755</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel reveal reveal-delay-2">
+      <div class="panel-header">
+        <h3>吉林3C电子 — 品牌三足鼎立</h3>
+        <span class="panel-badge blue">小米/Apple/华为 三分天下</span>
+      </div>
+      <div style="padding:4px 0 8px;">
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">小米在吉林3C市场<strong style="color:var(--accent)">一家独大，占比40%</strong>，远超Apple(31%)和华为(29%)。这个格局说明吉林用户偏好性价比机型，小米的品牌定位恰好命中——后续拉新可以重点打小米牌。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
+          <tbody>
+            <tr><td>小米</td><td class="num">¥637万</td><td class="num">933</td></tr>
+            <tr><td>Apple</td><td class="num">¥497万</td><td class="num">734</td></tr>
+            <tr><td>华为</td><td class="num">¥453万</td><td class="num">663</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-grid" style="margin-top:20px;">
+    <div class="panel reveal reveal-delay-3" style="grid-column: 1 / -1;">
+      <div class="panel-header">
+        <h3>下钻结论 & 行动方向</h3>
+        <span class="panel-badge purple">增长机会</span>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;padding:12px 0;">
+        <div style="flex:1;min-width:280px;padding:16px;background:rgba(16,185,129,0.04);border-radius:8px;border:1px solid rgba(16,185,129,0.15);">
+          <h4 style="color:var(--green);font-size:15px;margin-bottom:8px;">香港食品生鲜：需求在，但触达链路断了</h4>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            55.7%的用户买过食品生鲜，但全年仅2,361单、¥29.8万营收。客单价（¥126）和全国持平，<strong style="color:var(--green)">不是价格问题，是"想不起来"的问题</strong>。香港用户的注意力被3C电子完全占满（¥1,703万），食品生鲜在信息流里被淹没了。建议：① 首页针对香港用户增加食品生鲜专属入口 ② 三只松鼠/农夫山泉/蒙牛专场限时促销 ③ 3C订单完成后推送食品生鲜（"买完手机，顺便囤点零食"）
+          </p>
+        </div>
+        <div style="flex:1;min-width:280px;padding:16px;background:rgba(59,130,246,0.04);border-radius:8px;border:1px solid rgba(59,130,246,0.15);">
+          <h4 style="color:var(--accent);font-size:15px;margin-bottom:8px;">吉林3C电子：用户少，不是品类弱</h4>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
+            3C是吉林第一大品类（¥1,587万），占全国仅2.8%。渗透率56.5%、客单价只差¥96（1.4%）、取消率正常——<strong style="color:var(--accent)">一切指标都健康，唯一的问题是吉林总用户太少了</strong>。小米一家吃掉40%份额，Apple和华为各占30%左右。建议：① 吉林定向拉新（注册送3C专属优惠券）② 小米/Apple/华为阶梯满减活动 ③ 手机+配件套餐打包推荐
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
