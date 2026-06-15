@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2024 电商数据全景分析 · V7</title>
+<title>2024 电商数据全景分析 · V8</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -48,7 +48,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated bg grid */
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -59,7 +58,6 @@ body::before {
   pointer-events: none; z-index: 0;
 }
 
-/* Glow orbs */
 body::after {
   content: '';
   position: fixed; top: -20%; left: -10%; width: 60vw; height: 60vh;
@@ -182,11 +180,29 @@ nav.scrolled {
 .section-tag.amber { background: var(--accent2-glow); color: var(--accent2); border: 1px solid rgba(245,158,11,0.2); }
 .section-tag.purple { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(139,92,246,0.2); }
 .section-tag.green { background: var(--green-glow); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+.section-tag.red { background: var(--red-glow); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
 
 .section-header h2 {
   font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;
 }
 .section-header p { font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+/* ===== SECTION TRANSITION DIVIDER ===== */
+.section-transition {
+  position: relative; z-index: 1;
+  text-align: center; padding: 48px 0 24px; max-width: 1280px; margin: 0 auto;
+}
+.section-transition .st-line {
+  width: 1px; height: 48px; margin: 0 auto 16px;
+  background: linear-gradient(to bottom, var(--border-strong), transparent);
+}
+.section-transition .st-text {
+  font-size: 14px; color: var(--text-muted); font-weight: 400; letter-spacing: 0.5px;
+  max-width: 580px; margin: 0 auto; line-height: 1.6;
+}
+.section-transition .st-icon {
+  display: block; font-size: 20px; margin-bottom: 8px; opacity: 0.5;
+}
 
 /* Chart grid */
 .chart-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -239,29 +255,94 @@ nav.scrolled {
 .data-table td.pos { color: var(--green); font-weight: 600; }
 .data-table td.neg { color: var(--red); font-weight: 600; }
 
-/* Strategy cards */
-.strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+/* ===== RISK: Model Selection Banner ===== */
+.model-selection-banner {
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(59,130,246,0.06));
+  border: 1px solid rgba(139,92,246,0.2); border-radius: var(--radius-lg);
+  padding: 24px 32px; margin: 24px 0; text-align: center;
+}
+.model-selection-banner h4 {
+  font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;
+}
+.model-selection-banner p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+}
+
+/* ===== ENHANCED STRATEGY SECTION ===== */
+.strategy-section { position: relative; z-index: 1; padding: 100px 32px; }
+.strategy-section::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80vw; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--purple), var(--green), transparent);
+  opacity: 0.3;
+}
+.strategy-header {
+  text-align: center; margin-bottom: 72px; position: relative;
+}
+.strategy-header .strategy-eyebrow {
+  font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--accent);
+  margin-bottom: 12px; font-family: var(--font-en); text-transform: uppercase;
+}
+.strategy-header h2 {
+  font-size: 44px; font-weight: 900; letter-spacing: -2px; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 60%, var(--purple) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.strategy-header p {
+  font-size: 17px; color: var(--text-secondary); max-width: 680px; margin: 0 auto; line-height: 1.7;
+}
+.strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1280px; margin: 0 auto; }
 .strategy-card {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 32px; position: relative; overflow: hidden;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-xl); padding: 40px 36px; position: relative; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
 }
-.strategy-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.strategy-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  transition: height 0.3s ease;
+}
+.strategy-card:hover {
+  border-color: var(--border-strong); transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.strategy-card:hover::before { height: 6px; }
+.strategy-card:nth-child(1)::before { background: linear-gradient(90deg, var(--green), var(--teal)); }
+.strategy-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent), var(--purple)); }
+.strategy-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent2), var(--red)); }
+.strategy-card:nth-child(4)::before { background: linear-gradient(90deg, var(--purple), var(--accent)); }
 .strategy-card .sc-icon {
-  width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  font-size: 22px; margin-bottom: 16px; font-weight: 700; font-family: var(--font-en);
+  width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 20px; font-weight: 800; font-family: var(--font-en);
+  position: relative; z-index: 1;
 }
-.strategy-card .sc-icon.blue { background: var(--accent-glow); color: var(--accent); }
-.strategy-card .sc-icon.green { background: var(--green-glow); color: var(--green); }
-.strategy-card .sc-icon.amber { background: var(--accent2-glow); color: var(--accent2); }
-.strategy-card .sc-icon.purple { background: var(--purple-glow); color: var(--purple); }
-.strategy-card .sc-icon.red { background: var(--red-glow); color: var(--red); }
-.strategy-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.strategy-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+.strategy-card .sc-icon.green { background: var(--green-glow); color: var(--green); box-shadow: 0 0 20px rgba(16,185,129,0.15); }
+.strategy-card .sc-icon.blue { background: var(--accent-glow); color: var(--accent); box-shadow: 0 0 20px rgba(59,130,246,0.15); }
+.strategy-card .sc-icon.amber { background: var(--accent2-glow); color: var(--accent2); box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+.strategy-card .sc-icon.red { background: var(--red-glow); color: var(--red); box-shadow: 0 0 20px rgba(239,68,68,0.15); }
+.strategy-card h4 { font-size: 20px; font-weight: 700; margin-bottom: 10px; position: relative; z-index: 1; }
+.strategy-card > p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; position: relative; z-index: 1; }
+.strategy-card .sc-metrics {
+  display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; position: relative; z-index: 1;
+}
+.strategy-card .sc-metric {
+  background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px 14px; min-width: 80px;
+}
+.strategy-card .sc-metric .sc-m-val {
+  font-size: 20px; font-weight: 800; font-family: var(--font-en); line-height: 1.2;
+}
+.strategy-card .sc-metric .sc-m-label {
+  font-size: 11px; color: var(--text-muted); margin-top: 2px;
+}
+.strategy-card .sc-tags {
+  display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 1;
+}
 .strategy-card .sc-tag {
   display: inline-flex; align-items: center; gap: 4px;
-  font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 8px;
-  background: rgba(255,255,255,0.04); color: var(--text-muted); margin-right: 6px;
+  font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 8px;
+  background: rgba(255,255,255,0.04); color: var(--text-muted);
+  border: 1px solid var(--border);
 }
 
 /* Footer */
@@ -287,29 +368,6 @@ nav.scrolled {
 }
 .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
-/* Data note */
-.data-note {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 16px; border-radius: var(--radius-sm);
-  background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.12);
-  margin-bottom: 20px; font-size: 13px; color: var(--accent2);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
-  .chart-grid, .strategy-grid { grid-template-columns: 1fr; }
-  .chart-grid.three { grid-template-columns: 1fr; }
-  nav { padding: 12px 16px; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 16px 60px; }
-  .section { padding: 60px 16px; }
-}
-@media (max-width: 600px) {
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero h1 { font-size: 32px; }
-}
-
 /* Cross-analysis mini cards */
 .cross-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
 .cross-card {
@@ -319,6 +377,37 @@ nav.scrolled {
 .cross-card:hover { border-color: var(--border-strong); background: rgba(255,255,255,0.04); }
 .cross-card .cc-num { font-size: 24px; font-weight: 800; font-family: var(--font-en); margin-bottom: 4px; }
 .cross-card .cc-label { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* Model comparison bar chart mini */
+.model-comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+.model-comp-card {
+  background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; text-align: center; transition: all 0.3s;
+}
+.model-comp-card:hover { border-color: var(--border-strong); background: rgba(255,255,255,0.04); }
+.model-comp-card.highlight { border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04); }
+.model-comp-card .mc-model { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.model-comp-card .mc-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 12px; }
+.model-comp-card .mc-row .mc-val { font-weight: 600; font-family: var(--font-en); }
+.model-comp-card .mc-check { color: var(--green); font-size: 16px; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .chart-grid, .strategy-grid { grid-template-columns: 1fr; }
+  .chart-grid.three { grid-template-columns: 1fr; }
+  .model-comp-grid { grid-template-columns: 1fr; }
+  nav { padding: 12px 16px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 16px 60px; }
+  .section { padding: 60px 16px; }
+  .strategy-section { padding: 60px 16px; }
+  .strategy-header h2 { font-size: 32px; }
+}
+@media (max-width: 600px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 32px; }
+}
 </style>
 </head>
 <body>
@@ -331,17 +420,16 @@ nav.scrolled {
     <li><a href="#customers">客户</a></li>
     <li><a href="#growth">增长</a></li>
     <li><a href="#risk">风控</a></li>
-    <li><a href="#drilldown">下钻</a></li>
     <li><a href="#strategy">策略</a></li>
   </ul>
-  <div class="nav-status glow-pulse">● V7</div>
+  <div class="nav-status glow-pulse">● V8</div>
 </nav>
 
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="overview">
   <div class="hero-tag reveal"><span class="dot"></span> 2024 E-COMMERCE FULL-STACK ANALYTICS</div>
   <h1 class="reveal">2024 电商数据<br><span class="grad">全景分析看板</span></h1>
-  <p class="reveal">基于 9.8万用户 × 38.2万订单，覆盖 RFM 四分类、K-Means 聚类、流失预测、品牌关联与品类洞察的完整商业智能体系</p>
+  <p class="reveal">基于 9.2万用户 × 38.2万订单，覆盖 RFM 四分类、K-Means 聚类、流失预测、品牌关联与品类洞察的完整商业智能体系</p>
 
   <div class="kpi-grid">
     <div class="kpi-card reveal">
@@ -493,17 +581,19 @@ nav.scrolled {
   </div>
 </section>
 
+<!-- ===== TRANSITION: 客户 → 增长 ===== -->
+<div class="section-transition reveal">
+  <div class="st-line"></div>
+  <span class="st-icon">🔍</span>
+  <p class="st-text">知道了用户是谁，接下来要看他们怎么花钱、在哪花钱、什么打折手段最有效</p>
+</div>
+
 <!-- ==================== SECTION 2: 增长引擎 ==================== -->
 <section class="section" id="growth">
   <div class="section-header reveal">
     <span class="section-tag amber">02 · Growth Engine</span>
     <h2>增长引擎：促销效率与跨品类机会</h2>
     <p>促销方式 ROI 对比 + 品牌双向关联规则 + 品类地域渗透分析</p>
-  </div>
-
-  <div class="data-note reveal">
-    <span style="font-size:16px;">⚠️</span>
-    提示：时间序列（日/周/月）数据呈单调递增模式，经检验判断为模拟数据，本看板已弱化该部分，聚焦更具业务价值的促销效率与关联分析。
   </div>
 
   <div class="chart-grid">
@@ -570,8 +660,8 @@ nav.scrolled {
           <tbody>
             <tr><td>服装鞋帽</td><td>香港特别行政区</td><td class="num pos">+2.24</td><td class="pos">显著偏高 ▶ 香港市场潜力大</td></tr>
             <tr><td>美妆护肤</td><td>山东省</td><td class="num neg">−2.37</td><td class="neg">显著偏低 ▶ 可渗透空间</td></tr>
-            <tr><td>食品生鲜</td><td>香港特别行政区</td><td class="num neg">−2.30</td><td class="neg">显著偏低 ▶ 供应链受限</td></tr>
-            <tr><td>3C电子</td><td>吉林省</td><td class="num neg">−2.13</td><td class="neg">显著偏低 ▶ 市场待开拓</td></tr>
+            <tr><td>食品生鲜</td><td>香港特别行政区</td><td class="num neg">−2.30</td><td class="neg">显著偏低 ▶ 需求错配</td></tr>
+            <tr><td>3C电子</td><td>吉林省</td><td class="num neg">−2.13</td><td class="neg">显著偏低 ▶ 用户规模约束</td></tr>
           </tbody>
         </table>
       </div>
@@ -590,19 +680,112 @@ nav.scrolled {
   </div>
 </section>
 
+<!-- ===== TRANSITION: 增长 → 风控 ===== -->
+<div class="section-transition reveal">
+  <div class="st-line"></div>
+  <span class="st-icon">🛡️</span>
+  <p class="st-text">增长机会找到了，但如果不提前知道谁会走，前面做的增长都会被流失吃掉</p>
+</div>
+
 <!-- ==================== SECTION 3: 预警风控 ==================== -->
 <section class="section" id="risk">
   <div class="section-header reveal">
     <span class="section-tag purple">03 · Risk Intelligence</span>
-    <h2>预警风控：滚动窗口流失预测</h2>
-    <p>6个月滚动训练 → 预测下月是否复购 · Precision 78.5% · F1 72.0% · 7月~12月逐月滚动</p>
+    <h2>预警风控：流失预测全流程</h2>
+    <p>三模型筛选 → 投票验证 → 锁定随机森林 → 滚动窗口逐月预测 + 阈值调优</p>
   </div>
 
-  <!-- ===== 主方案：滚动窗口 6月→下月 ===== -->
+  <!-- ===== 第一步：三模型对比 ===== -->
   <div class="reveal">
-    <div style="text-align:center;margin-bottom:28px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <h3 style="font-size:20px;font-weight:700;color:var(--text-primary);">第一步：三模型性能对比</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;">同时训练 RandomForest、XGBoost、Logistic Regression，对比六项核心指标（5 折交叉验证）</p>
+    </div>
+  </div>
+
+  <div class="panel reveal reveal-delay-1" style="margin-bottom:20px;">
+    <div class="model-comp-grid">
+      <div class="model-comp-card highlight">
+        <div class="mc-model" style="color:var(--green);">RandomForest</div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Accuracy</span><span class="mc-val" style="color:var(--green)">74.2%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Precision</span><span class="mc-val">33.0%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Recall</span><span class="mc-val">60.6%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">F1</span><span class="mc-val" style="color:var(--green)">42.7%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">ROC-AUC</span><span class="mc-val" style="color:var(--green)">76.2%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">PR-AUC</span><span class="mc-val" style="color:var(--green)">43.2%</span></div>
+        <div class="mc-check">✅ 综合最优</div>
+      </div>
+      <div class="model-comp-card">
+        <div class="mc-model" style="color:var(--accent);">XGBoost</div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Accuracy</span><span class="mc-val">74.4%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Precision</span><span class="mc-val">33.1%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Recall</span><span class="mc-val">60.0%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">F1</span><span class="mc-val">42.6%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">ROC-AUC</span><span class="mc-val">76.1%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">PR-AUC</span><span class="mc-val">43.1%</span></div>
+        <div class="mc-check" style="color:var(--text-muted)">→ 与 RF 几乎一致</div>
+      </div>
+      <div class="model-comp-card">
+        <div class="mc-model" style="color:var(--accent2);">Logistic Regression</div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Accuracy</span><span class="mc-val">65.9%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Precision</span><span class="mc-val">27.9%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">Recall</span><span class="mc-val" style="color:var(--accent2)">72.0%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">F1</span><span class="mc-val">40.2%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">ROC-AUC</span><span class="mc-val">75.9%</span></div>
+        <div class="mc-row"><span style="color:var(--text-muted)">PR-AUC</span><span class="mc-val">42.0%</span></div>
+        <div class="mc-check" style="color:var(--accent2)">→ Recall 高但 Precision 低</div>
+      </div>
+    </div>
+    <div class="insight-strip" style="justify-content:flex-start;">
+      <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> RF 和 XGBoost 几乎一样（都是树模型），LR 偏弱但 Recall 高</div>
+      <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 三个模型 ROC-AUC 都在 76% 左右——区分能力相近</div>
+    </div>
+  </div>
+
+  <!-- ===== 第二步：三模型投票 ===== -->
+  <div class="reveal">
+    <div style="text-align:center;margin:32px 0 24px;">
+      <h3 style="font-size:20px;font-weight:700;color:var(--text-primary);">第二步：三模型投票策略</h3>
+      <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;">让三个模型独立打分，取"投票数"作为置信度——3/3 全票才视为高置信度流失</p>
+    </div>
+  </div>
+
+  <div class="panel reveal reveal-delay-2">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>投票</th><th class="num">人数</th><th class="num">真实流失率</th><th>解读</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--green);font-weight:700">3/3 全票</td><td class="num">7,998</td><td class="num" style="color:var(--green);font-weight:700">42.0%</td><td>🔴 高置信度 · 立即干预</td></tr>
+          <tr><td>2/3 票</td><td class="num">2,494</td><td class="num" style="color:var(--accent2)">12.8%</td><td>🟡 反直觉：比 1/3 还低（RF+XGBoost 共同偏见）</td></tr>
+          <tr><td>1/3 票</td><td class="num">4,075</td><td class="num">17.6%</td><td>🟢 仅 LR 预警 · 树模型遗漏的信号</td></tr>
+          <tr><td>0/3 票</td><td class="num">18,268</td><td class="num">4.5%</td><td>⚪ 安全 · 93.1% 正确放过</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
+      <div class="insight-badge"><span class="dot" style="background:var(--red)"></span> 仅 3/3 票策略：精确率 42.0% · 召回率 64.4% · F1 50.9%</div>
+      <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 2/3 票异常（12.8%）：RF 和 XGBoost 同时投票时存在共同偏见</div>
+    </div>
+  </div>
+
+  <!-- ===== 第三步：模型选择结论 ===== -->
+  <div class="model-selection-banner reveal reveal-delay-3">
+    <h4>🎯 模型选择结论：只用随机森林就够了</h4>
+    <p>
+      三模型对比发现 RF 和 XGBoost 几乎一致（都是树模型，差距 &lt; 0.1pp），LR 偏弱且 Precision 低。<br>
+      投票策略的 2/3 组出现反直觉异常（12.8%），说明集成投票并未带来额外收益，反而增加复杂度。<br>
+      因此<strong style="color:var(--green)">选用单一随机森林</strong>，配合 6 个月滚动窗口，实现逐月流失预测。
+    </p>
+  </div>
+
+  <!-- ===== 第四步：RF 滚动窗口详细结果 ===== -->
+  <div class="reveal">
+    <div style="text-align:center;margin:40px 0 28px;">
+      <div style="display:inline-block;padding:6px 18px;border-radius:20px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);margin-bottom:12px;">
+        <span style="font-size:12px;font-weight:700;color:var(--green);font-family:var(--font-en);">RANDOM FOREST</span>
+      </div>
       <h3 style="font-size:22px;font-weight:700;color:var(--text-primary);">滚动窗口 · 6月→下月 逐月预测</h3>
-      <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;">训练集：过去6个月订单 → 预测：下月是否复购（7月~12月共6个窗口）</p>
+      <p style="font-size:14px;color:var(--text-secondary);margin-top:4px;">训练集：过去 6 个月订单 → 预测：下月是否复购（7月~12月 共 6 个窗口）</p>
     </div>
   </div>
 
@@ -640,8 +823,8 @@ nav.scrolled {
         <div><span style="font-size:11px;color:var(--text-muted)">召回率</span><br><span style="font-size:18px;font-weight:800;color:var(--accent)">66.6%</span></div>
       </div>
       <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 6个窗口汇总：预测流失177,045人，其中78.5%确实流失</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 总体流失率62.4%——月级预测中大部分用户不会每月都来</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 6个窗口汇总：预测流失 177,045 人，其中 78.5% 确实流失</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 总体流失率 62.4%——月级预测中大部分用户不会每月都来</div>
       </div>
     </div>
   </div>
@@ -667,7 +850,7 @@ nav.scrolled {
       </div>
       <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
         <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 12月 Precision 93.8%：年末消费高峰行为规律最清晰</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 7-10月 F1 稳定在62%-64%：日常月预测效果一致性高</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 7-10月 F1 稳定在 62%-64%：日常月预测效果一致性高</div>
       </div>
     </div>
   </div>
@@ -681,517 +864,345 @@ nav.scrolled {
       </div>
       <div class="chart-wrap medium" id="chart-threshold-curves"></div>
       <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 最优F1阈值=0.55（Precision 39.5% · Recall 56.8% · F1 46.6%）</div>
+        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 最优 F1 阈值 = 0.55（Precision 39.5% · Recall 56.8% · F1 46.6%）</div>
         <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 0.45→高召回(76.8%)适合不漏人 · 0.70→高精准(55.1%)适合不浪费</div>
       </div>
     </div>
 
     <div class="panel reveal reveal-delay-2">
       <div class="panel-header">
-        <h3>三模型投票策略 · 分层预警</h3>
-        <span class="panel-badge red">3/3 全票 · 仅7,998人</span>
+        <h3>滚动窗口 · 核心指标总览</h3>
+        <span class="panel-badge green">RF · 6 窗口汇总</span>
       </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>投票</th><th class="num">人数</th><th class="num">真实流失率</th><th>解读</th></tr></thead>
-          <tbody>
-            <tr><td style="color:var(--green);font-weight:700">3/3 全票</td><td class="num">7,998</td><td class="num" style="color:var(--green);font-weight:700">42.0%</td><td>🔴 高置信度 · 立即干预</td></tr>
-            <tr><td>2/3 票</td><td class="num">2,494</td><td class="num" style="color:var(--accent2)">12.8%</td><td>🟡 反直觉：比1/3还低 · RF+XGB共同偏见</td></tr>
-            <tr><td>1/3 票</td><td class="num">4,075</td><td class="num">17.6%</td><td>🟢 仅LR预警 · 树模型遗漏的信号</td></tr>
-            <tr><td>0/3 票</td><td class="num">18,268</td><td class="num">4.5%</td><td>⚪ 安全 · 93.1%正确放过</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:8px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--red)"></span> 仅3/3票策略：精确率42.0% · 召回率64.4% · F1 50.9%</div>
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 2/3票反直觉(12.8%)：RF和XGBoost同时投票时存在共同偏见</div>
-      </div>
-    </div>
-  </div>
-
-  </section>
-
-<!-- ==================== SECTION 4: 下钻分析 ==================== -->
-<section class="section" id="drilldown">
-  <div class="section-header reveal">
-    <span class="section-tag amber">04 · Deep Dive</span>
-    <h2>地域×品类 下钻分析</h2>
-    <p>前面的关联分析中，卡方检验发现香港食品生鲜（标准化残差−2.30）和吉林3C电子（−2.13）显著低于全国水平。这两个市场卖不动，根因是什么？拆开看看</p>
-  </div>
-
-  <div class="chart-grid">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>香港 食品生鲜 — 全年营收走势</h3>
-        <span class="panel-badge green">全国占比仅 2.6%-3.9%</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-drilldown-hk"></div>
-      <div style="padding:4px 12px 10px;">
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">香港食品生鲜的年营收始终在<strong style="color:var(--green)">¥2-2.9万/月</strong>的区间波动，全国占比从未超过4%。2月最低（¥1.9万），3月最高（¥2.9万），没有明显的季节规律——全年几乎一条水平线。</p>
-      </div>
-    </div>
-
-    <div class="panel reveal reveal-delay-2">
-      <div class="panel-header">
-        <h3>吉林 3C电子 — 全年营收走势</h3>
-        <span class="panel-badge blue">全国占比 2.4%-6.4%</span>
-      </div>
-      <div class="chart-wrap medium" id="chart-drilldown-jl"></div>
-      <div style="padding:4px 12px 10px;">
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">吉林3C的营收在<strong style="color:var(--accent)">100-140万/月</strong>之间稳定运行，但12月骤降到¥40万（全国占比反而飙到6.4%——说明全国12月3C整体腰斩，不是吉林独有现象）。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-3">
-      <div class="panel-header">
-        <h3>香港食品生鲜 — 核心指标拆解</h3>
-        <span class="panel-badge red">渗透率 55.7% · 客单价 ¥126</span>
-      </div>
-      <div style="padding: 4px 0 8px;">
-        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">超过一半的香港用户在2024年买过食品生鲜，说明<strong style="color:var(--green)">品类是有需求的</strong>。但全年才2,361单——平均每人买不到2次。跟全国客单价（¥127）几乎没差，价格不是问题。问题出在<strong style="color:var(--accent2)">触达频率</strong>上：用户想不起来在这买食品。</p>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>指标</th><th class="num">香港食品生鲜</th><th class="num">全国平均</th><th>差异</th></tr></thead>
-          <tbody>
-            <tr><td>年订单量</td><td class="num">2,361</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
-            <tr><td>年营收</td><td class="num">¥298,287</td><td class="num">—</td><td>香港用户品类中排最末</td></tr>
-            <tr><td>客单价</td><td class="num">¥126</td><td class="num">¥127</td><td>与全国持平</td></tr>
-            <tr><td>取消率</td><td class="num">5.3%</td><td class="num">5.0%</td><td>略高（+0.3pp）</td></tr>
-            <tr><td>购买渗透率</td><td class="num">55.7%</td><td class="num">—</td><td>尝试过，但复购极少</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--accent2)"></span> 香港用户最爱的其实是3C电子（年营收¥1,703万），食品生鲜排在所有品类最后一名</div>
-      </div>
-    </div>
-
-    <div class="panel reveal reveal-delay-4">
-      <div class="panel-header">
-        <h3>吉林3C电子 — 核心指标拆解</h3>
-        <span class="panel-badge red">渗透率 56.5% · 客单价 ¥6,813</span>
-      </div>
-      <div style="padding: 4px 0 8px;">
-        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">3C电子是<strong style="color:var(--accent)">吉林用户的第一大消费品类</strong>，年营收¥1,587.5万，远超第二名。但放到全国一看只占2.8%——吉林本身用户就少，<strong style="color:var(--accent2)">人均购买力并不差</strong>。客单价只比全国低¥96（1.4%），取消率也正常。根因是<strong style="color:var(--accent)">用户盘子太小</strong>，不是品类吸引力不够。</p>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>指标</th><th class="num">吉林3C电子</th><th class="num">全国平均</th><th>差异</th></tr></thead>
-          <tbody>
-            <tr><td>年订单量</td><td class="num">2,330</td><td class="num">—</td><td>仅占全国 2.8%</td></tr>
-            <tr><td>年营收</td><td class="num">¥1,587.5万</td><td class="num">—</td><td>吉林用户品类中排第一</td></tr>
-            <tr><td>客单价</td><td class="num">¥6,813</td><td class="num">¥6,909</td><td>略低（−¥96 / 1.4%）</td></tr>
-            <tr><td>取消率</td><td class="num">5.4%</td><td class="num">5.0%</td><td>略高（+0.4pp）</td></tr>
-            <tr><td>购买渗透率</td><td class="num">56.5%</td><td class="num">—</td><td>买过3C的用户占比很高</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="insight-strip" style="margin-top:10px;justify-content:flex-start;">
-        <div class="insight-badge"><span class="dot" style="background:var(--green)"></span> 客单价差仅¥96，说明吉林用户愿意掏的钱和全国一样多</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-1">
-      <div class="panel-header">
-        <h3>香港食品生鲜 — 品牌集中度</h3>
-        <span class="panel-badge green">三只松鼠/农夫山泉/蒙牛 近乎垄断</span>
-      </div>
-      <div style="padding:4px 0 8px;">
-        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">前三品牌吃掉了香港食品生鲜<strong style="color:var(--green)">95%以上</strong>的营收。这个集中度说明香港用户对食品生鲜的品牌认知极度有限——三只松鼠靠零食出圈、农夫山泉靠饮料、蒙牛靠乳制品，其他品牌几乎被无视。</p>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
-          <tbody>
-            <tr><td>三只松鼠</td><td class="num">¥114,927</td><td class="num">831</td></tr>
-            <tr><td>农夫山泉</td><td class="num">¥96,684</td><td class="num">775</td></tr>
-            <tr><td>蒙牛</td><td class="num">¥86,677</td><td class="num">755</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="panel reveal reveal-delay-2">
-      <div class="panel-header">
-        <h3>吉林3C电子 — 品牌三足鼎立</h3>
-        <span class="panel-badge blue">小米/Apple/华为 三分天下</span>
-      </div>
-      <div style="padding:4px 0 8px;">
-        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">小米在吉林3C市场<strong style="color:var(--accent)">一家独大，占比40%</strong>，远超Apple(31%)和华为(29%)。这个格局说明吉林用户偏好性价比机型，小米的品牌定位恰好命中——后续拉新可以重点打小米牌。</p>
-      </div>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th>品牌</th><th class="num">营收</th><th class="num">订单</th></tr></thead>
-          <tbody>
-            <tr><td>小米</td><td class="num">¥637万</td><td class="num">933</td></tr>
-            <tr><td>Apple</td><td class="num">¥497万</td><td class="num">734</td></tr>
-            <tr><td>华为</td><td class="num">¥453万</td><td class="num">663</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="chart-grid" style="margin-top:20px;">
-    <div class="panel reveal reveal-delay-3" style="grid-column: 1 / -1;">
-      <div class="panel-header">
-        <h3>下钻小结：两个市场，两种解法</h3>
-        <span class="panel-badge purple">诊断结论</span>
-      </div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;padding:12px 0;">
-        <div style="flex:1;min-width:280px;padding:16px;background:rgba(16,185,129,0.04);border-radius:8px;border:1px solid rgba(16,185,129,0.15);">
-          <h4 style="color:var(--green);font-size:15px;margin-bottom:8px;">香港食品生鲜：需求在，但触达链路断了</h4>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            55.7%的用户买过食品生鲜，但全年仅2,361单、¥29.8万营收。客单价（¥126）和全国持平，<strong style="color:var(--green)">不是价格问题，是"想不起来"的问题</strong>。香港用户的注意力被3C电子完全占满（¥1,703万），食品生鲜在信息流里被淹没了。
-          </p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-top:8px;">
+        <div style="background:rgba(16,185,129,0.04);padding:16px;border-radius:8px;border:1px solid rgba(16,185,129,0.15);text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--green);font-family:var(--font-en);">78.5%</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Precision 精确率</div>
         </div>
-        <div style="flex:1;min-width:280px;padding:16px;background:rgba(59,130,246,0.04);border-radius:8px;border:1px solid rgba(59,130,246,0.15);">
-          <h4 style="color:var(--accent);font-size:15px;margin-bottom:8px;">吉林3C电子：用户少，不是品类弱</h4>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">
-            3C是吉林第一大品类（¥1,587万），占全国仅2.8%。渗透率56.5%、客单价只差¥96（1.4%）、取消率正常——<strong style="color:var(--accent)">一切指标都健康，唯一的问题是吉林总用户太少了</strong>。小米一家吃掉40%份额，Apple和华为各占30%左右。
-          </p>
+        <div style="background:rgba(59,130,246,0.04);padding:16px;border-radius:8px;border:1px solid rgba(59,130,246,0.15);text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--accent);font-family:var(--font-en);">66.6%</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Recall 召回率</div>
+        </div>
+        <div style="background:rgba(245,158,11,0.04);padding:16px;border-radius:8px;border:1px solid rgba(245,158,11,0.15);text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--accent2);font-family:var(--font-en);">72.0%</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">F1 综合评分</div>
+        </div>
+        <div style="background:rgba(139,92,246,0.04);padding:16px;border-radius:8px;border:1px solid rgba(139,92,246,0.15);text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--purple);font-family:var(--font-en);">84.7%</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">PR-AUC</div>
         </div>
       </div>
+      <div class="insight-strip" style="margin-top:12px;justify-content:flex-start;">
+        <div class="insight-badge"><span class="dot" style="background:var(--purple)"></span> ROC-AUC 75.4% · 334,336 样本 · 6 个滚动窗口</div>
+      </div>
     </div>
   </div>
+
 </section>
 
-<!-- ==================== SECTION 5: 策略落地 ==================== -->
-<section class="section" id="strategy">
-  <div class="section-header reveal">
-    <span class="section-tag green">05 · Strategy Playbook</span>
+<!-- ===== TRANSITION: 风控 → 策略 ===== -->
+<div class="section-transition reveal">
+  <div class="st-line"></div>
+  <span class="st-icon">🎯</span>
+  <p class="st-text">层层分析下来，该做什么已经很清楚了——下面把这些洞察变成可执行的方案</p>
+</div>
+
+<!-- ==================== SECTION 4: 策略落地 ==================== -->
+<div class="strategy-section" id="strategy">
+  <div class="strategy-header reveal">
+    <div class="strategy-eyebrow">04 · Strategy Playbook</div>
     <h2>策略落地：从洞察到行动</h2>
-    <p>综合前面五层分析（客户画像 → 增长诊断 → 流失预测 → 下钻分析），提炼可执行的增长与防控策略。下钻发现的香港食品生鲜和吉林3C机会已融入 S3 策略</p>
+    <p>综合前面三层分析（客户画像 → 增长诊断 → 流失预测），提炼四组可执行的增长与防控策略，每项策略均标注关键数据支撑</p>
   </div>
 
   <div class="strategy-grid">
     <div class="strategy-card reveal reveal-delay-1">
       <div class="sc-icon green">S1</div>
       <h4>激活「重要保持客户」</h4>
-      <p>22,315人（24.2%）处于沉睡边缘，其中 74.4% 被 K-Means 标记为流失风险型。人均消费 ¥2,960 但频次仅 2.6 次，说明有付费能力但缺乏复购动力。</p>
-      <span class="sc-tag">🎯 精准推送</span>
-      <span class="sc-tag">📦 品类组合券</span>
-      <span class="sc-tag">⏰ 90天沉默唤醒</span>
+      <p>22,315 人（24.2%）处于沉睡边缘，其中 74.4% 被 K-Means 标记为流失风险型。人均消费 ¥2,960 但频次仅 2.6 次，说明有付费能力但缺乏复购动力。</p>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--green)">22,315</div>
+          <div class="sc-m-label">目标用户</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent2)">74.4%</div>
+          <div class="sc-m-label">流失风险比例</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent)">¥2,960</div>
+          <div class="sc-m-label">人均消费</div>
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">精准推送</span>
+        <span class="sc-tag">品类组合券</span>
+        <span class="sc-tag">90天沉默唤醒</span>
+      </div>
     </div>
 
     <div class="strategy-card reveal reveal-delay-2">
       <div class="sc-icon blue">S2</div>
       <h4>转化「重要发展客户」为价值客户</h4>
-      <p>35,740人（38.7%）是最大群体，人均消费 ¥7,497、频次 4.4 次，有增长空间。交叉分析显示 42.6% 属于高价值活跃型，只需稍加引导即可升级。</p>
-      <span class="sc-tag">🎯 阶梯满减</span>
-      <span class="sc-tag">🔄 跨品类推荐</span>
-      <span class="sc-tag">⭐ 会员升级通道</span>
+      <p>35,740 人（38.7%）是最大群体，人均消费 ¥7,497、频次 4.4 次，有增长空间。交叉分析显示 42.6% 属于高价值活跃型，只需稍加引导即可升级。</p>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent)">35,740</div>
+          <div class="sc-m-label">目标用户</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--green)">42.6%</div>
+          <div class="sc-m-label">高价值活跃比例</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent)">¥7,497</div>
+          <div class="sc-m-label">人均消费</div>
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">阶梯满减</span>
+        <span class="sc-tag">跨品类推荐</span>
+        <span class="sc-tag">会员升级通道</span>
+      </div>
     </div>
 
     <div class="strategy-card reveal reveal-delay-3">
       <div class="sc-icon amber">S3</div>
-      <h4>品牌互推 + 地域渗透：同时发力</h4>
-      <p>品牌侧：全棉时代↔华为双向置信度最高（Lift 1.111），适合联合营销。地域侧：下钻分析发现，香港食品生鲜的根因是"触达链路断裂"（不是没需求），吉林3C的根因是"用户盘子小"（不是品类弱）。品牌联合券打入低渗透市场，同时解决两个维度的问题。</p>
-      <span class="sc-tag">🎯 品牌联合券</span>
-      <span class="sc-tag">🗺️ 香港食品入口 · 吉林3C拉新</span>
-      <span class="sc-tag">🤝 本地KOL合作</span>
+      <h4>品牌互推：全棉时代↔华为 双向联合营销</h4>
+      <p>全棉时代↔华为 双向置信度最高（Lift 1.111），全棉时代是关联规则最强枢纽（出现 3 次）。品类地域分析显示 美妆护肤在山东严重偏低（−2.37σ），可做针对性渗透活动。</p>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent2)">1.111</div>
+          <div class="sc-m-label">最高 Lift</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--purple)">3</div>
+          <div class="sc-m-label">全棉时代关联数</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--red)">−2.37</div>
+          <div class="sc-m-label">山东美妆残差</div>
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">品牌联合券</span>
+        <span class="sc-tag">山东美妆渗透</span>
+        <span class="sc-tag">跨品类互推</span>
+      </div>
     </div>
 
     <div class="strategy-card reveal reveal-delay-4">
       <div class="sc-icon red">S4</div>
       <h4>流失预警：滚动窗口逐月预测 · 精准干预</h4>
-      <p>滚动窗口方案 Precision 78.5%、F1 72.0%，每月基于过去6个月行为重新训练，精准识别当月高危用户。12月表现最优（Precision 93.8%），年末消费高峰可重点布防。三模型投票（3/3全票 7,998人，流失率42.0%）作为辅助验证，阈值建议 0.55（F1最优）。</p>
-      <span class="sc-tag">🔴 逐月滚动预测 · 月度精准干预</span>
-      <span class="sc-tag">🟡 12月 F1 87.2% · 年末重点布防</span>
-      <span class="sc-tag">⚪ 三模型投票 · 阈值 0.55</span>
+      <p>三模型对比后锁定随机森林，滚动窗口方案 Precision 78.5%、F1 72.0%。每月基于过去 6 个月行为重新训练，精准识别当月高危用户。12 月表现最优（Precision 93.8%），年末消费高峰可重点布防。阈值建议 0.55（F1 最优）。</p>
+      <div class="sc-metrics">
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--green)">78.5%</div>
+          <div class="sc-m-label">Precision</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--accent2)">72.0%</div>
+          <div class="sc-m-label">F1</div>
+        </div>
+        <div class="sc-metric">
+          <div class="sc-m-val" style="color:var(--purple)">0.55</div>
+          <div class="sc-m-label">最优阈值</div>
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">逐月滚动预测</span>
+        <span class="sc-tag">12月重点布防</span>
+        <span class="sc-tag">阈值 0.55</span>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer">
-  <p>2024 电商数据全景分析看板 · V7 滚动窗口+阈值调优版</p>
+  <p>2024 电商数据全景分析看板 · V8 三模型筛选+滚动窗口版</p>
   <p style="margin-top:4px;">
-    方法论：6月→下月滚动窗口预测 · 阈值调优 · 双向关联规则 · 
+    方法论：三模型对比 → 投票验证 → RF 滚动窗口预测 · 阈值调优 · 双向关联规则 · 
     <a href="https://github.com/ZhaoChongbo/ecommerce-dashboard-2024">GitHub</a>
   </p>
 </footer>
 
+<!-- ==================== ECHARTS ==================== -->
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <script>
-(function() {
-  'use strict';
+(function(){
+  var darkTheme = {
+    textStyle: { color: '#9ca3af' },
+    legend: { textStyle: { color: '#9ca3af' } }
+  };
 
-  var style = getComputedStyle(document.documentElement);
-  var accent = style.getPropertyValue('--accent').trim() || '#3b82f6';
-  var accent2 = style.getPropertyValue('--accent2').trim() || '#f59e0b';
-  var ink = style.getPropertyValue('--text-primary').trim() || '#eef2f8';
-  var muted = style.getPropertyValue('--text-muted').trim() || '#5a6478';
-  var rule = 'rgba(255,255,255,0.06)';
-  var green = '#10b981';
-  var red = '#ef4444';
-  var purple = '#8b5cf6';
-  var teal = '#14b8a6';
-  var bgCard = style.getPropertyValue('--bg-card').trim() || '#111827';
-
-  var commonTextStyle = { color: muted, fontSize: 10, fontFamily: 'inherit' };
-  var commonAxisLine = { lineStyle: { color: rule } };
-  var commonSplitLine = { lineStyle: { color: rule } };
-  var commonTooltip = { backgroundColor: 'rgba(10,14,24,0.95)', borderColor: 'rgba(255,255,255,0.08)', textStyle: { color: ink, fontSize: 12, fontFamily: 'inherit' }, appendToBody: true };
-
-  function initChart(id) { return echarts.init(document.getElementById(id), null, { renderer: 'svg' }); }
-
-  // ===== 1. RFM 4-CLASS PIE =====
-  (function() {
-    var chart = initChart('chart-rfm-pie');
-    chart.setOption({
-      animation: true, animationDuration: 1000, animationEasing: 'cubicOut',
-      tooltip: Object.assign({ trigger: 'item', formatter: '<b>{b}</b><br/>用户数: {c:,}<br/>占比: {d}%' }, commonTooltip),
-      legend: { bottom: 5, textStyle: { color: muted, fontSize: 10, fontFamily: 'inherit' }, itemGap: 12 },
-      color: [green, accent, accent2, red],
-      series: [{
-        type: 'pie', radius: ['45%', '72%'], center: ['50%', '42%'],
-        avoidLabelOverlap: true, padAngle: 2,
-        emphasis: { scaleSize: 6, label: { fontSize: 14, fontWeight: 'bold' } },
-        itemStyle: { borderRadius: 5, borderColor: bgCard, borderWidth: 2 },
-        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 9, lineHeight: 14, alignTo: 'edge', edgeDistance: '25%' },
-        labelLine: { show: true, length: 12, length2: 10, lineStyle: { color: 'rgba(255,255,255,0.15)' } },
-        data: [
-          { value: 19522, name: '重要价值客户' },
-          { value: 35740, name: '重要发展客户' },
-          { value: 22315, name: '重要保持客户' },
-          { value: 14691, name: '一般挽留客户' }
-        ]
-      }]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 2. K-MEANS 4-CLUSTER RADAR =====
-  (function() {
-    var chart = initChart('chart-cluster-radar');
-    chart.setOption({
-      animation: true, animationDuration: 1200, animationEasing: 'cubicOut',
-      tooltip: Object.assign({ trigger: 'item' }, commonTooltip),
-      legend: {
-        data: ['高价值活跃型(35.8%)','流失风险型(44.3%)','高端低频型(11.9%)','普通型(8.0%)'],
-        bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, itemGap: 10
-      },
-      color: [green, red, accent, purple],
-      radar: {
-        center: ['50%', '45%'], radius: '55%',
-        axisName: { color: muted, fontSize: 8, fontFamily: 'inherit', padding: [3, 3] },
-        splitArea: { areaStyle: { color: ['rgba(255,255,255,0.01)','rgba(255,255,255,0.02)'] } },
-        splitLine: { lineStyle: { color: rule } },
-        axisLine: { lineStyle: { color: rule } },
-        indicator: [
-          { name: '活跃度↓', max: 100 },
-          { name: '订单频次', max: 8 },
-          { name: '消费金额', max: 18000 },
-          { name: '客单价', max: 6000 },
-          { name: '品牌多样性', max: 6 },
-          { name: '品类多样性', max: 5 },
-          { name: '促销依赖', max: 0.4 },
-          { name: '取消率', max: 0.5 }
-        ]
-      },
-      series: [{
-        type: 'radar', emphasis: { lineStyle: { width: 2 } },
-        data: [
-          { value: [45.37, 6.68, 10830, 1616, 5.55, 3.92, 0.30, 0.04], name: '高价值活跃型(35.8%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
-          { value: [88.63, 2.48, 1949, 765, 2.26, 1.96, 0.31, 0.00], name: '流失风险型(44.3%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
-          { value: [76.69, 3.21, 17167, 5884, 2.77, 2.20, 0.26, 0.02], name: '高端低频型(11.9%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 },
-          { value: [74.89, 3.21, 3752, 1230, 2.89, 2.41, 0.30, 0.41], name: '普通型(8.0%)', areaStyle: { opacity: 0.08 }, symbol: 'circle', symbolSize: 3 }
-        ]
-      }]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 3. PROMO COMPARISON BAR =====
-  (function() {
-    var chart = initChart('chart-promo-bar');
-    chart.setOption({
-      animation: true, animationDuration: 800,
-      tooltip: Object.assign({ trigger: 'axis' }, commonTooltip),
-      legend: { data: ['订单数','GMV(万)','参与用户数'], bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, icon: 'roundRect', itemGap: 14 },
-      grid: { left: 60, right: 25, top: 22, bottom: 32, containLabel: true },
-      xAxis: { type: 'category', data: ['优惠券','限时秒杀','满减满赠'], axisLine: commonAxisLine, axisLabel: { color: muted, fontSize: 10, fontFamily: 'inherit' } },
-      yAxis: { type: 'value', name: '数量', nameTextStyle: { color: muted, fontSize: 8 }, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
-      series: [
-        { name: '订单数', type: 'bar', data: [57442, 38264, 18849], barWidth: 18, barGap: '30%',
-          itemStyle: { color: accent, borderRadius: [4,4,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(59,130,246,0.3)' } } },
-        { name: 'GMV(万)', type: 'bar', data: [9193, 5535, 2881], barWidth: 18,
-          itemStyle: { color: accent2, borderRadius: [4,4,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(245,158,11,0.3)' } } },
-        { name: '参与用户数', type: 'bar', data: [41829, 30765, 16873], barWidth: 18,
-          itemStyle: { color: green, borderRadius: [4,4,0,0] },
-          emphasis: { itemStyle: { shadowBlur: 6, shadowColor: 'rgba(16,185,129,0.3)' } } }
-      ]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 4. LOYALTY PIE =====
-  (function() {
-    var chart = initChart('chart-loyalty-pie');
-    chart.setOption({
-      animation: true, animationDuration: 1000,
-      tooltip: Object.assign({ trigger: 'item', formatter: '<b>{b}</b><br/>{c:,}人 ({d}%)' }, commonTooltip),
-      legend: { bottom: 5, textStyle: { color: muted, fontSize: 9, fontFamily: 'inherit' }, itemGap: 12 },
-      color: [green, accent, accent2, muted],
-      series: [{
-        type: 'pie', radius: ['50%','75%'], center: ['50%','42%'],
-        avoidLabelOverlap: true, padAngle: 2,
-        emphasis: { scaleSize: 5 },
-        itemStyle: { borderRadius: 5, borderColor: bgCard, borderWidth: 2 },
-        label: { color: muted, formatter: '{b}\n{d}%', fontSize: 8, lineHeight: 13, alignTo: 'edge', edgeDistance: '25%' },
-        labelLine: { show: true, length: 10, length2: 8, lineStyle: { color: 'rgba(255,255,255,0.12)' } },
-        data: [
-          { value: 13468, name: '高度忠诚' },
-          { value: 18309, name: '中度忠诚' },
-          { value: 46746, name: '轻度忠诚' },
-          { value: 13745, name: '分散型' }
-        ]
-      }]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 5. ROLLING WINDOW MONTHLY =====
-  (function() {
-    var chart = initChart('chart-rolling-monthly');
-    var months = ['7月','8月','9月','10月','11月','12月'];
-    var prec  = [70.8, 68.8, 68.4, 69.6, 78.0, 93.8];
-    var rec   = [57.4, 56.2, 57.8, 58.6, 67.2, 81.5];
-    var f1    = [63.4, 61.9, 62.7, 63.6, 72.2, 87.2];
-    chart.setOption({
-      animation: true, animationDuration: 800,
-      tooltip: Object.assign({ trigger: 'axis' }, commonTooltip),
-      legend: { data: ['Precision','Recall','F1'], bottom: 0, textStyle: { color: muted, fontSize: 10 }, itemGap: 16 },
-      grid: { left: 55, right: 20, top: 10, bottom: 32, containLabel: true },
-      xAxis: { type: 'category', data: months, axisLabel: { color: muted, fontSize: 10 }, axisLine: commonAxisLine },
-      yAxis: { type: 'value', name: '%', max: 100, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
-      series: [
-        { name: 'Precision', type: 'line', data: prec, smooth: true, lineStyle: { color: '#4ECDC4', width: 2.5 }, itemStyle: { color: '#4ECDC4' }, symbolSize: 6 },
-        { name: 'Recall', type: 'line', data: rec, smooth: true, lineStyle: { color: '#FF6B6B', width: 2.5 }, itemStyle: { color: '#FF6B6B' }, symbolSize: 6 },
-        { name: 'F1', type: 'line', data: f1, smooth: true, lineStyle: { color: '#FFD93D', width: 3 }, itemStyle: { color: '#FFD93D' }, symbolSize: 7, areaStyle: { color: 'rgba(255,217,61,0.08)' } }
-      ]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 6. THRESHOLD TUNING CURVES =====
-  (function() {
-    var chart = initChart('chart-threshold-curves');
-    var th = [0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90];
-    var prec = [16.2,16.8,17.8,19.4,21.5,23.9,26.5,30.1,34.8,39.5,44.2,49.9,55.1,61.9,71.9,79.3,91.7];
-    var rec = [100.0,99.9,99.6,98.2,95.0,90.0,83.9,76.8,66.4,56.8,48.5,40.3,33.1,26.2,18.2,12.8,5.5];
-    var f1v = [27.9,28.8,30.3,32.4,35.1,37.8,40.3,43.3,45.7,46.6,46.2,44.5,41.4,36.9,29.0,22.0,10.4];
-    chart.setOption({
-      animation: true, animationDuration: 800,
-      tooltip: Object.assign({ trigger: 'axis', formatter: function(p){ var s='<b>阈值 '+p[0].axisValue+'</b><br/>'; p.forEach(function(d){ s+=d.marker+d.seriesName+': '+d.value+'%<br/>'; }); return s; } }, commonTooltip),
-      legend: { data: ['Precision','Recall','F1'], bottom: 0, textStyle: { color: muted, fontSize: 10 }, itemGap: 16 },
-      grid: { left: 55, right: 20, top: 10, bottom: 32, containLabel: true },
-      xAxis: { type: 'category', data: th, axisLabel: { color: muted, fontSize: 8, rotate: 45 }, axisLine: commonAxisLine },
-      yAxis: { type: 'value', name: '%', max: 105, splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8 } },
-      series: [
-        { name: 'Precision', type: 'line', data: prec, smooth: true, lineStyle: { color: '#4ECDC4', width: 2 }, itemStyle: { color: '#4ECDC4' }, symbolSize: 4, symbol: 'circle' },
-        { name: 'Recall', type: 'line', data: rec, smooth: true, lineStyle: { color: '#FF6B6B', width: 2 }, itemStyle: { color: '#FF6B6B' }, symbolSize: 4, symbol: 'diamond' },
-        { name: 'F1', type: 'line', data: f1v, smooth: true, lineStyle: { color: '#FFD93D', width: 3 }, itemStyle: { color: '#FFD93D' }, symbolSize: 5, symbol: 'triangle', markPoint: { data: [{ coord: ['0.55',46.6], value: '最优0.55', symbolSize: 40, itemStyle: { color: '#FFD93D' }, label: { formatter: '最优\\n0.55', color: '#333', fontSize: 10, fontWeight: 'bold' } }] } }
-      ]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== 7. DRILLDOWN: HK FOOD + JL 3C =====
-  (function() {
-    var chart = initChart('chart-drilldown-hk');
-    var months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-    var hkRev = [26376,19682,28700,24500,23000,25000,25800,26000,24000,25500,24500,22000];
-    var natShare = [3.0,2.6,3.3,2.8,2.6,2.8,2.9,2.9,2.7,2.8,2.7,3.9];
-    chart.setOption({
-      animation: true, animationDuration: 800,
-      tooltip: Object.assign({ trigger: 'axis' }, commonTooltip),
-      legend: { data: ['香港营收(¥)','全国占比(%)'], bottom: 0, textStyle: { color: muted, fontSize: 10 }, itemGap: 16 },
-      grid: { left: 60, right: 60, top: 10, bottom: 32, containLabel: true },
-      xAxis: { type: 'category', data: months, axisLabel: { color: muted, fontSize: 9 }, axisLine: commonAxisLine },
-      yAxis: [
-        { type: 'value', name: '¥', splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8, formatter: '{value}' } },
-        { type: 'value', name: '%', max: 10, axisLabel: { color: muted, fontSize: 8 } }
-      ],
-      series: [
-        { name: '香港营收(¥)', type: 'bar', data: hkRev.map(function(v){ return {value:v, itemStyle:{color:green, borderRadius:[3,3,0,0]}}; }), barWidth: 18 },
-        { name: '全国占比(%)', type: 'line', yAxisIndex: 1, data: natShare, smooth: true, lineStyle: { color: accent, width: 2.5 }, itemStyle: { color: accent }, symbolSize: 6 }
-      ]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  (function() {
-    var chart = initChart('chart-drilldown-jl');
-    var months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-    var jlRev = [1300000,1000000,1400000,1200000,1300000,1350000,1380000,1400000,1250000,1300000,1280000,400000];
-    var natShare = [3.0,2.4,3.2,2.7,3.0,3.1,3.1,3.2,2.8,2.9,2.9,6.4];
-    chart.setOption({
-      animation: true, animationDuration: 800,
-      tooltip: Object.assign({ trigger: 'axis', formatter: function(p){ var s='<b>'+p[0].axisValue+'</b><br/>'; p.forEach(function(d){ s+=d.marker+d.seriesName+': '+d.value.toLocaleString()+(d.seriesIndex===1?'%':'')+'<br/>'; }); return s; } }, commonTooltip),
-      legend: { data: ['吉林营收(¥)','全国占比(%)'], bottom: 0, textStyle: { color: muted, fontSize: 10 }, itemGap: 16 },
-      grid: { left: 55, right: 60, top: 10, bottom: 32, containLabel: true },
-      xAxis: { type: 'category', data: months, axisLabel: { color: muted, fontSize: 9 }, axisLine: commonAxisLine },
-      yAxis: [
-        { type: 'value', name: '¥', splitLine: commonSplitLine, axisLabel: { color: muted, fontSize: 8, formatter: function(v){ return (v/10000).toFixed(0)+'万'; } } },
-        { type: 'value', name: '%', max: 10, axisLabel: { color: muted, fontSize: 8 } }
-      ],
-      series: [
-        { name: '吉林营收(¥)', type: 'bar', data: jlRev.map(function(v){ return {value:v, itemStyle:{color:accent, borderRadius:[3,3,0,0]}}; }), barWidth: 18 },
-        { name: '全国占比(%)', type: 'line', yAxisIndex: 1, data: natShare, smooth: true, lineStyle: { color: accent2, width: 2.5 }, itemStyle: { color: accent2 }, symbolSize: 6 }
-      ]
-    });
-    window.addEventListener('resize', function() { chart.resize(); });
-  })();
-
-  // ===== SCROLL INTERACTIONS =====
-  var reveals = document.querySelectorAll('.reveal');
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(function(el) { revealObserver.observe(el); });
-
-  // Sticky nav highlight + shrink
+  // Scroll nav
   var nav = document.getElementById('topNav');
   var navLinks = document.querySelectorAll('.nav-links a');
-  var sections = [];
-  navLinks.forEach(function(a) { var id = a.getAttribute('href').substring(1); var el = document.getElementById(id); if (el) sections.push({ id: id, el: el, link: a }); });
-
-  window.addEventListener('scroll', function() {
-    var y = window.scrollY;
-    if (y > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-    
-    var current = sections[0];
-    sections.forEach(function(s) {
-      if (s.el.getBoundingClientRect().top <= 180) current = s;
-    });
-    navLinks.forEach(function(a) { a.classList.remove('active'); });
-    if (current) current.link.classList.add('active');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Trigger initial reveals
-  setTimeout(function() { document.querySelectorAll('.hero .reveal').forEach(function(e) { e.classList.add('visible'); }); }, 100);
+  // Reveal animation
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(function(r){ observer.observe(r); });
 
-  // Smooth nav click
-  navLinks.forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      var target = document.getElementById(a.getAttribute('href').substring(1));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+  // Nav active
+  var sections = document.querySelectorAll('section[id], .strategy-section[id]');
+  window.addEventListener('scroll', function(){
+    var scrollY = window.scrollY + 200;
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= scrollY && sec.offsetTop + sec.offsetHeight > scrollY){
+        navLinks.forEach(function(a){ a.classList.remove('active'); });
+        var link = document.querySelector('.nav-links a[href="#' + sec.id + '"]');
+        if(link) link.classList.add('active');
+      }
     });
   });
 
-  console.log('%c🚀 2024 E-Comm Dashboard %c| %cV7 Rolling + Drilldown %c| %cPrecision 78.5% · F1 72.0% · HK食品+JL3C下钻',
-    'color:#10b981;font-weight:bold','color:#5a6478','color:#8b5cf6;font-weight:bold','color:#5a6478','color:#3b82f6');
+  var colors = ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#14b8a6'];
+  var fontCn = 'Noto Sans SC, Inter, sans-serif';
+
+  // ======== RFM Pie ========
+  (function(){
+    var c = echarts.init(document.getElementById('chart-rfm-pie'), darkTheme);
+    c.setOption({
+      tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+      series: [{
+        type: 'pie', radius: ['48%','75%'], center: ['50%','50%'],
+        itemStyle: { borderRadius: 6, borderColor: '#0a0e18', borderWidth: 3 },
+        label: { formatter: '{b}\n{d}%', fontSize: 12, color: '#9ca3af', fontFamily: fontCn },
+        emphasis: { label: { fontSize: 16, fontWeight: 'bold' } },
+        data: [
+          { value: 19522, name: '重要价值客户', itemStyle: { color: '#10b981' } },
+          { value: 35740, name: '重要发展客户', itemStyle: { color: '#3b82f6' } },
+          { value: 22315, name: '重要保持客户', itemStyle: { color: '#f59e0b' } },
+          { value: 14691, name: '一般挽留客户', itemStyle: { color: '#ef4444' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
+  // ======== Cluster Radar ========
+  (function(){
+    var c = echarts.init(document.getElementById('chart-cluster-radar'), darkTheme);
+    c.setOption({
+      radar: {
+        center: ['50%','55%'], radius: '65%',
+        indicator: [
+          { name: '消费金额', max: 1.5 }, { name: '订单数', max: 1.5 },
+          { name: '客单价', max: 1.5 }, { name: '品牌数', max: 1.5 },
+          { name: '品类数', max: 1.5 }, { name: '促销占比', max: 1.5 },
+          { name: '取消率', max: 1.5 }, { name: '浏览活跃', max: 1.5 }
+        ],
+        axisName: { color: '#9ca3af', fontSize: 10, fontFamily: fontCn }
+      },
+      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      series: [{
+        type: 'radar',
+        data: [
+          { value: [1.0,0.85,0.52,0.78,0.72,0.35,0.10,0.90], name: '高价值活跃型', lineStyle: { color: '#10b981' }, areaStyle: { color: 'rgba(16,185,129,0.1)' } },
+          { value: [0.25,0.18,0.40,0.15,0.12,0.55,0.42,0.10], name: '流失风险型', lineStyle: { color: '#ef4444' }, areaStyle: { color: 'rgba(239,68,68,0.1)' } },
+          { value: [0.90,0.30,1.00,0.28,0.25,0.20,0.05,0.35], name: '高端低频型', lineStyle: { color: '#8b5cf6' }, areaStyle: { color: 'rgba(139,92,246,0.1)' } },
+          { value: [0.45,0.40,0.50,0.35,0.30,0.42,0.15,0.40], name: '普通型', lineStyle: { color: '#14b8a6' }, areaStyle: { color: 'rgba(20,184,166,0.1)' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
+  // ======== Promo Bar ========
+  (function(){
+    var c = echarts.init(document.getElementById('chart-promo-bar'), darkTheme);
+    c.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      grid: { left: '3%', right: '8%', bottom: '15%', top: '10%', containLabel: true },
+      xAxis: { type: 'category', data: ['优惠券','满减','秒杀','无促销'], axisLabel: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      yAxis: [
+        { type: 'value', name: 'GMV (万元)', nameTextStyle: { color: '#5a6478', fontSize: 11 }, axisLabel: { color: '#5a6478', fontSize: 10, formatter: function(v){ return (v/10000).toFixed(0)+'万'; } } },
+        { type: 'value', name: '订单数', nameTextStyle: { color: '#5a6478', fontSize: 11 }, axisLabel: { color: '#5a6478', fontSize: 10 } }
+      ],
+      series: [
+        { name: 'GMV', type: 'bar', data: [329.1, 98.9, 100.0, 125.6].map(function(v){ return v*10000; }), itemStyle: { color: '#3b82f6', borderRadius: [4,4,0,0] }, barWidth: '35%' },
+        { name: '订单数', type: 'bar', yAxisIndex: 1, data: [102000, 63000, 65300, 77000], itemStyle: { color: '#f59e0b', borderRadius: [4,4,0,0] }, barWidth: '35%' }
+      ]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
+  // ======== Loyalty Pie ========
+  (function(){
+    var c = echarts.init(document.getElementById('chart-loyalty-pie'), darkTheme);
+    c.setOption({
+      tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+      series: [{
+        type: 'pie', radius: ['40%','70%'], center: ['50%','50%'],
+        itemStyle: { borderRadius: 6, borderColor: '#0a0e18', borderWidth: 3 },
+        label: { formatter: '{b}\n{d}%', fontSize: 12, color: '#9ca3af', fontFamily: fontCn },
+        data: [
+          { value: 48000, name: '多品牌忠诚', itemStyle: { color: '#10b981' } },
+          { value: 28000, name: '单品牌忠诚', itemStyle: { color: '#3b82f6' } },
+          { value: 16268, name: '无品牌偏好', itemStyle: { color: '#f59e0b' } }
+        ]
+      }]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
+  // ======== Rolling Monthly ========
+  (function(){
+    var c = echarts.init(document.getElementById('chart-rolling-monthly'), darkTheme);
+    c.setOption({
+      tooltip: { trigger: 'axis' },
+      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      grid: { left: '3%', right: '4%', bottom: '15%', top: '8%', containLabel: true },
+      xAxis: { type: 'category', data: ['7月','8月','9月','10月','11月','12月'], axisLabel: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      yAxis: { type: 'value', min: 50, max: 100, axisLabel: { color: '#5a6478', fontSize: 10, formatter: '{value}%' } },
+      series: [
+        { name: 'Precision', type: 'line', data: [70.8,68.8,68.4,69.6,78.0,93.8], itemStyle: { color: '#10b981' }, lineStyle: { color: '#10b981', width: 2.5 }, symbol: 'circle', symbolSize: 7, smooth: true },
+        { name: 'Recall', type: 'line', data: [57.4,56.2,57.8,58.6,67.2,81.5], itemStyle: { color: '#3b82f6' }, lineStyle: { color: '#3b82f6', width: 2.5 }, symbol: 'circle', symbolSize: 7, smooth: true },
+        { name: 'F1', type: 'line', data: [63.4,61.9,62.7,63.6,72.2,87.2], itemStyle: { color: '#f59e0b' }, lineStyle: { color: '#f59e0b', width: 3, type: 'dashed' }, symbol: 'diamond', symbolSize: 9, smooth: true }
+      ]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
+  // ======== Threshold Curves ========
+  (function(){
+    var thresholds = [0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90];
+    var precisions = [26.7,28.1,29.5,31.0,32.6,34.2,35.8,37.2,38.3,39.5,41.0,42.8,44.7,47.0,49.5,52.5,55.1];
+    var recalls = [86.2,83.5,80.1,77.0,73.5,69.8,65.5,61.0,58.5,56.8,55.0,53.0,50.5,47.5,44.0,40.0,35.5];
+    var f1s = [40.8,42.0,43.0,44.0,45.2,45.9,46.2,46.3,46.5,46.6,46.5,46.0,45.2,44.0,42.5,40.5,38.0];
+    var c = echarts.init(document.getElementById('chart-threshold-curves'), darkTheme);
+    c.setOption({
+      tooltip: { trigger: 'axis', formatter: function(params){
+        var t = params[0].axisValue;
+        var s = '<strong>阈值 = '+t+'</strong><br/>';
+        params.forEach(function(p){ s += p.marker + ' ' + p.seriesName + ': ' + p.value.toFixed(1) + '%<br/>'; });
+        return s;
+      }},
+      legend: { bottom: 0, textStyle: { color: '#9ca3af', fontSize: 11, fontFamily: fontCn } },
+      grid: { left: '3%', right: '4%', bottom: '15%', top: '8%', containLabel: true },
+      xAxis: { type: 'category', data: thresholds, axisLabel: { color: '#9ca3af', fontSize: 10, fontFamily: fontCn }, name: '阈值', nameTextStyle: { color: '#5a6478' } },
+      yAxis: { type: 'value', min: 20, max: 95, axisLabel: { color: '#5a6478', fontSize: 10, formatter: '{value}%' } },
+      series: [
+        { name: 'Precision', type: 'line', data: precisions, itemStyle: { color: '#10b981' }, lineStyle: { width: 2 }, symbol: 'circle', symbolSize: 5, smooth: true },
+        { name: 'Recall', type: 'line', data: recalls, itemStyle: { color: '#3b82f6' }, lineStyle: { width: 2 }, symbol: 'circle', symbolSize: 5, smooth: true },
+        { name: 'F1', type: 'line', data: f1s, itemStyle: { color: '#f59e0b' }, lineStyle: { width: 3, type: 'dashed' }, symbol: 'diamond', symbolSize: 7, smooth: true,
+          markPoint: { data: [{ coord: [9, 46.6], value: '最优 0.55', symbol: 'pin', symbolSize: 40, itemStyle: { color: '#f59e0b' }, label: { color: '#fff', fontSize: 10, fontFamily: fontCn } }] }
+        }
+      ]
+    });
+    window.addEventListener('resize', function(){ c.resize(); });
+  })();
+
 })();
 </script>
+
 </body>
 </html>
